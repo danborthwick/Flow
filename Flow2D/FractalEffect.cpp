@@ -8,77 +8,38 @@
 
 #include "FractalEffect.h"
 
+#include "math.h"
+
 FractalEffect::FractalEffect()
 {
     mVisibleRegion.left = -2;
-    mVisibleRegion.right = 1.5;
+    mVisibleRegion.right = 1;
     mVisibleRegion.top = 1;
     mVisibleRegion.bottom = -1;
+    
+//    mpColourMapper = new GreyscaleColourMapper(MandelbrotRender::cMaxIterations, 32);
+    mpColourMapper = new HSVColourMapper(MandelbrotRender::cMaxIterations, 8);
 }
 
 void FractalEffect::render(RGBABuffer const& rgbaBuffer, int elapsedFrames)
 {
-    MandelbrotRender render(rgbaBuffer, mVisibleRegion);
+    MandelbrotRender render(rgbaBuffer, mVisibleRegion, *mpColourMapper);
     render.perform();
+    
+    renderColourMapping(rgbaBuffer);
 }
 
-//------------------------------------
-
-const int MandelbrotRender::cMaxIterations = 1000;
-
-MandelbrotRender::MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender)
-:   mTarget(target),
-    mRegionToRender(regionToRender)
+void FractalEffect::renderColourMapping(const RGBABuffer &rgbaBuffer)
 {
-}
-
-void MandelbrotRender::perform()
-{
-    for (int y=0; y < mTarget.height; y++) {
-        for (int x=0; x < mTarget.width; x++) {
-            mTarget.buffer[(y * mTarget.width) + x] = colourOfPixel(x, y);
+    const int stripeWidth = 16;
+    const int stripeHeight = fminf(rgbaBuffer.height, MandelbrotRender::cMaxIterations);
+    
+    for (int y=0; y<stripeHeight; y++) {
+        rgbaPixel colour = mpColourMapper->rgbaTable()[y];
+        
+        for (int x=0; x<stripeWidth; x++) {
+            rgbaBuffer.buffer[(y * rgbaBuffer.width) + x] = colour;
         }
-    }    
-}
-
-rgbaPixel MandelbrotRender::colourOfPixel(int pixelX, int pixelY)
-{
-    float mandelbrotWidth = mRegionToRender.right - mRegionToRender.left;
-    float mandelbrotHeight = mRegionToRender.top - mRegionToRender.bottom;
-    
-    float mandelbrotX = mRegionToRender.left + ((pixelX * mandelbrotWidth) / mTarget.width);
-    float mandelbrotY = mRegionToRender.bottom + ((pixelY * mandelbrotHeight) / mTarget.height);
-    
-    int iterations = iterationsForEscapeTimeOfPoint(mandelbrotX, mandelbrotY);
-    return colourForIteration(iterations);
-}
-
-float MandelbrotRender::iterationsForEscapeTimeOfPoint(float pointX, float pointY)
-{
-    int iterations = 0;
-    
-    float x = 0;
-    float y = 0;
-    
-    while ((x*x + y*y < 2*2) &&  (iterations < cMaxIterations))
-    {
-        float xTemp = x*x - y*y + pointX;
-        y = 2*x*y + pointY;
-        
-        x = xTemp;
-        
-        iterations++;
     }
-    return iterations;
 }
-
-rgbaPixel MandelbrotRender::colourForIteration(int iteration)
-{
-    rgbaPixel pixel;
-    rgbaComponent* components = (rgbaComponent*) &pixel;
-    rgbaComponent clampedIteration = iteration & 0xff;
-    components[0] = components[1] = components[2] = components[3] = clampedIteration;
-    return pixel;
-}
-
 

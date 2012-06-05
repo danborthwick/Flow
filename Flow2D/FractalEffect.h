@@ -9,16 +9,9 @@
 #ifndef Flow2D_FractalEffect_h
 #define Flow2D_FractalEffect_h
 
+#include "LinearHSVColourMapper.h"
+#include "MandelbrotRender.h"
 #include "Renderable.h"
-
-class MandelbrotRegion
-{
-public:
-    float left;
-    float right;
-    float top;
-    float bottom;
-};
 
 class FractalEffect : public Renderable
 {
@@ -27,24 +20,11 @@ public:
     virtual void render(RGBABuffer const& rgbaBuffer, int elapsedFrames);
     
 private:
-    MandelbrotRegion mVisibleRegion;
-};
-
-class MandelbrotRender
-{
-private:
-    RGBABuffer const& mTarget;
-    MandelbrotRegion const& mRegionToRender;
-    static const int cMaxIterations;
-
-public:
-    MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender);
-    void perform();
+    void renderColourMapping(RGBABuffer const& rgbaBuffer);
     
-private:    
-    rgbaPixel colourOfPixel(int pixelX, int pixelY);
-    rgbaPixel colourForIteration(int iteration);
-    float iterationsForEscapeTimeOfPoint(float pointX, float pointY);
+private:
+    MandelbrotRegion mVisibleRegion;
+    LinearColourMapper* mpColourMapper;
 };
 
 #endif

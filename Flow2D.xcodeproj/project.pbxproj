@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C5157E4488000CC666 /* TestEffect.cpp */; };
+		2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */; };
+		2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */; };
+		2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */; };
+		2A9AF4D5157E8754000CC666 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9AF4D4157E8754000CC666 /* OCHamcrestIOS.framework */; };
 		2AEE877F157D45670017A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE877E157D45670017A603 /* UIKit.framework */; };
 		2AEE8781157D45670017A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8780157D45670017A603 /* Foundation.framework */; };
 		2AEE8783157D45670017A603 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8782157D45670017A603 /* CoreGraphics.framework */; };
@@ -21,7 +25,6 @@
 		2AEE87A1157D45670017A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE877E157D45670017A603 /* UIKit.framework */; };
 		2AEE87A2157D45670017A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8780157D45670017A603 /* Foundation.framework */; };
 		2AEE87AA157D45670017A603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AEE87A8157D45670017A603 /* InfoPlist.strings */; };
-		2AEE87AD157D45670017A603 /* Flow2DTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87AC157D45670017A603 /* Flow2DTests.m */; };
 		2AEE87C6157D4A0D0017A603 /* PixelBufferView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */; };
 		2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */; };
 /* End PBXBuildFile section */
@@ -40,6 +43,13 @@
 		2A9AF4C3157E4465000CC666 /* TestEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEffect.h; sourceTree = "<group>"; };
 		2A9AF4C5157E4488000CC666 /* TestEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEffect.cpp; sourceTree = "<group>"; };
 		2A9AF4C7157E4D20000CC666 /* RGBABuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBABuffer.h; sourceTree = "<group>"; };
+		2A9AF4C8157E649E000CC666 /* MandelbrotRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandelbrotRender.h; sourceTree = "<group>"; };
+		2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRender.cpp; sourceTree = "<group>"; };
+		2A9AF4CB157E65B2000CC666 /* LinearHSVColourMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinearHSVColourMapper.h; sourceTree = "<group>"; };
+		2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinearHSVColourMapper.cpp; sourceTree = "<group>"; };
+		2A9AF4CE157E8609000CC666 /* HSVToRGBAConverterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSVToRGBAConverterTests.h; sourceTree = "<group>"; };
+		2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HSVToRGBAConverterTests.mm; sourceTree = "<group>"; };
+		2A9AF4D4157E8754000CC666 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../Unit Test Test/OCHamcrest-1.7/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		2AEE877A157D45670017A603 /* Flow2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flow2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEE877E157D45670017A603 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AEE8780157D45670017A603 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,8 +68,6 @@
 		2AEE879F157D45670017A603 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2AEE87A7157D45670017A603 /* Flow2DTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flow2DTests-Info.plist"; sourceTree = "<group>"; };
 		2AEE87A9157D45670017A603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2AEE87AB157D45670017A603 /* Flow2DTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flow2DTests.h; sourceTree = "<group>"; };
-		2AEE87AC157D45670017A603 /* Flow2DTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flow2DTests.m; sourceTree = "<group>"; };
 		2AEE87C4157D4A0D0017A603 /* PixelBufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelBufferView.h; sourceTree = "<group>"; };
 		2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PixelBufferView.mm; sourceTree = "<group>"; };
 		2AEE87C8157E3A220017A603 /* Renderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderable.h; sourceTree = "<group>"; };
@@ -86,6 +94,7 @@
 				2AEE87A0157D45670017A603 /* SenTestingKit.framework in Frameworks */,
 				2AEE87A1157D45670017A603 /* UIKit.framework in Frameworks */,
 				2AEE87A2157D45670017A603 /* Foundation.framework in Frameworks */,
+				2A9AF4D5157E8754000CC666 /* OCHamcrestIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +123,7 @@
 		2AEE877D157D45670017A603 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A9AF4D4157E8754000CC666 /* OCHamcrestIOS.framework */,
 				2AEE877E157D45670017A603 /* UIKit.framework */,
 				2AEE8780157D45670017A603 /* Foundation.framework */,
 				2AEE8782157D45670017A603 /* CoreGraphics.framework */,
@@ -154,9 +164,9 @@
 		2AEE87A5157D45670017A603 /* Flow2DTests */ = {
 			isa = PBXGroup;
 			children = (
-				2AEE87AB157D45670017A603 /* Flow2DTests.h */,
-				2AEE87AC157D45670017A603 /* Flow2DTests.m */,
 				2AEE87A6157D45670017A603 /* Supporting Files */,
+				2A9AF4CE157E8609000CC666 /* HSVToRGBAConverterTests.h */,
+				2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */,
 			);
 			path = Flow2DTests;
 			sourceTree = "<group>";
@@ -179,6 +189,10 @@
 				2A9AF4C3157E4465000CC666 /* TestEffect.h */,
 				2A9AF4C5157E4488000CC666 /* TestEffect.cpp */,
 				2A9AF4C7157E4D20000CC666 /* RGBABuffer.h */,
+				2A9AF4C8157E649E000CC666 /* MandelbrotRender.h */,
+				2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */,
+				2A9AF4CB157E65B2000CC666 /* LinearHSVColourMapper.h */,
+				2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -296,6 +310,8 @@
 				2AEE87C6157D4A0D0017A603 /* PixelBufferView.mm in Sources */,
 				2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */,
 				2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */,
+				2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */,
+				2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AEE87AD157D45670017A603 /* Flow2DTests.m in Sources */,
+				2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +445,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../Unit Test Test/OCHamcrest-1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flow2D/Flow2D-Prefix.pch";
@@ -446,6 +463,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../Unit Test Test/OCHamcrest-1.7\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flow2D/Flow2D-Prefix.pch";
