@@ -12,6 +12,9 @@
 		2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */; };
 		2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */; };
 		2A9AF4D5157E8754000CC666 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9AF4D4157E8754000CC666 /* OCHamcrestIOS.framework */; };
+		2AA9328B157EC861008768A9 /* FractalController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9328A157EC861008768A9 /* FractalController.mm */; };
+		2AA9328E157EC917008768A9 /* ZoomController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9328D157EC917008768A9 /* ZoomController.mm */; };
+		2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AA93290157ED252008768A9 /* ZoomControllerTests.mm */; };
 		2AEE877F157D45670017A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE877E157D45670017A603 /* UIKit.framework */; };
 		2AEE8781157D45670017A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8780157D45670017A603 /* Foundation.framework */; };
 		2AEE8783157D45670017A603 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8782157D45670017A603 /* CoreGraphics.framework */; };
@@ -50,6 +53,12 @@
 		2A9AF4CE157E8609000CC666 /* HSVToRGBAConverterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSVToRGBAConverterTests.h; sourceTree = "<group>"; };
 		2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HSVToRGBAConverterTests.mm; sourceTree = "<group>"; };
 		2A9AF4D4157E8754000CC666 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../../Unit Test Test/OCHamcrest-1.7/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		2AA93289157EC861008768A9 /* FractalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FractalController.h; sourceTree = "<group>"; };
+		2AA9328A157EC861008768A9 /* FractalController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FractalController.mm; sourceTree = "<group>"; };
+		2AA9328C157EC917008768A9 /* ZoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomController.h; sourceTree = "<group>"; };
+		2AA9328D157EC917008768A9 /* ZoomController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZoomController.mm; sourceTree = "<group>"; };
+		2AA9328F157ED252008768A9 /* ZoomControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomControllerTests.h; sourceTree = "<group>"; };
+		2AA93290157ED252008768A9 /* ZoomControllerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZoomControllerTests.mm; sourceTree = "<group>"; };
 		2AEE877A157D45670017A603 /* Flow2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flow2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEE877E157D45670017A603 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AEE8780157D45670017A603 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A9AF4DA157E9F63000CC666 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AA9328C157EC917008768A9 /* ZoomController.h */,
+				2AA9328D157EC917008768A9 /* ZoomController.mm */,
+				2AA93289157EC861008768A9 /* FractalController.h */,
+				2AA9328A157EC861008768A9 /* FractalController.mm */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		2AEE876F157D45670017A603 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +155,7 @@
 		2AEE8784157D45670017A603 /* Flow2D */ = {
 			isa = PBXGroup;
 			children = (
+				2A9AF4DA157E9F63000CC666 /* Controllers */,
 				2AEE87C7157E38200017A603 /* Effects */,
 				2AEE878D157D45670017A603 /* AppDelegate.h */,
 				2AEE878E157D45670017A603 /* AppDelegate.m */,
@@ -167,6 +188,8 @@
 				2AEE87A6157D45670017A603 /* Supporting Files */,
 				2A9AF4CE157E8609000CC666 /* HSVToRGBAConverterTests.h */,
 				2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */,
+				2AA9328F157ED252008768A9 /* ZoomControllerTests.h */,
+				2AA93290157ED252008768A9 /* ZoomControllerTests.mm */,
 			);
 			path = Flow2DTests;
 			sourceTree = "<group>";
@@ -312,6 +335,8 @@
 				2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */,
 				2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */,
 				2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */,
+				2AA9328B157EC861008768A9 /* FractalController.mm in Sources */,
+				2AA9328E157EC917008768A9 /* ZoomController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */,
+				2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

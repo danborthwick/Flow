@@ -18,6 +18,8 @@ class FractalEffect : public Renderable
 public:
     FractalEffect();
     virtual void render(RGBABuffer const& rgbaBuffer, int elapsedFrames);
+    MandelbrotRegion const& visibleRegion() const;
+    void setVisibleRegion(MandelbrotRegion const& newVisibleRegion);
     
 private:
     void renderColourMapping(RGBABuffer const& rgbaBuffer);

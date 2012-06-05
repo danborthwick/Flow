@@ -10,20 +10,27 @@
 
 #include "FractalEffect.h"
 #import "PixelBufferView.h"
+#import "ZoomController.h"
 
 @interface ViewController ()
+
+@property ZoomController* mZoomController;
 
 @end
 
 @implementation ViewController
 
+@synthesize mZoomController;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    FractalEffect* pEffect = new FractalEffect;
+
     PixelBufferView* pixelBufferView = (PixelBufferView*) [self view];
+
+    FractalEffect* pEffect = new FractalEffect;
     [pixelBufferView addEffect:pEffect];
+    mZoomController = [[ZoomController alloc] initWithView:[self view] andEffect:pEffect];
 }
 
 - (void)viewDidUnload

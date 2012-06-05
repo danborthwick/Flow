@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include "FractalEffect.h"
+#import "FractalEffect.h"
 
 #include "math.h"
 
@@ -43,3 +43,12 @@ void FractalEffect::renderColourMapping(const RGBABuffer &rgbaBuffer)
     }
 }
 
+MandelbrotRegion const& FractalEffect::visibleRegion() const
+{
+    return mVisibleRegion;
+}
+
+void FractalEffect::setVisibleRegion(MandelbrotRegion const& newVisibleRegion)
+{
+    mVisibleRegion = newVisibleRegion;
+}
