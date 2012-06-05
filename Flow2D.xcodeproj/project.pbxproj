@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C5157E4488000CC666 /* TestEffect.cpp */; };
 		2AEE877F157D45670017A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE877E157D45670017A603 /* UIKit.framework */; };
 		2AEE8781157D45670017A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8780157D45670017A603 /* Foundation.framework */; };
 		2AEE8783157D45670017A603 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8782157D45670017A603 /* CoreGraphics.framework */; };
@@ -15,13 +16,14 @@
 		2AEE878F157D45670017A603 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE878E157D45670017A603 /* AppDelegate.m */; };
 		2AEE8792157D45670017A603 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEE8790157D45670017A603 /* MainStoryboard_iPhone.storyboard */; };
 		2AEE8795157D45670017A603 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEE8793157D45670017A603 /* MainStoryboard_iPad.storyboard */; };
-		2AEE8798157D45670017A603 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE8797157D45670017A603 /* ViewController.m */; };
+		2AEE8798157D45670017A603 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE8797157D45670017A603 /* ViewController.mm */; };
 		2AEE87A0157D45670017A603 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE879F157D45670017A603 /* SenTestingKit.framework */; };
 		2AEE87A1157D45670017A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE877E157D45670017A603 /* UIKit.framework */; };
 		2AEE87A2157D45670017A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE8780157D45670017A603 /* Foundation.framework */; };
 		2AEE87AA157D45670017A603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AEE87A8157D45670017A603 /* InfoPlist.strings */; };
 		2AEE87AD157D45670017A603 /* Flow2DTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87AC157D45670017A603 /* Flow2DTests.m */; };
-		2AEE87C6157D4A0D0017A603 /* PixelBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87C5157D4A0D0017A603 /* PixelBufferView.m */; };
+		2AEE87C6157D4A0D0017A603 /* PixelBufferView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */; };
+		2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A9AF4C3157E4465000CC666 /* TestEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEffect.h; sourceTree = "<group>"; };
+		2A9AF4C5157E4488000CC666 /* TestEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEffect.cpp; sourceTree = "<group>"; };
+		2A9AF4C7157E4D20000CC666 /* RGBABuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBABuffer.h; sourceTree = "<group>"; };
 		2AEE877A157D45670017A603 /* Flow2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flow2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEE877E157D45670017A603 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AEE8780157D45670017A603 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,7 +53,7 @@
 		2AEE8791157D45670017A603 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		2AEE8794157D45670017A603 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		2AEE8796157D45670017A603 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2AEE8797157D45670017A603 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2AEE8797157D45670017A603 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		2AEE879E157D45670017A603 /* Flow2DTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flow2DTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEE879F157D45670017A603 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2AEE87A7157D45670017A603 /* Flow2DTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flow2DTests-Info.plist"; sourceTree = "<group>"; };
@@ -56,7 +61,11 @@
 		2AEE87AB157D45670017A603 /* Flow2DTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flow2DTests.h; sourceTree = "<group>"; };
 		2AEE87AC157D45670017A603 /* Flow2DTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flow2DTests.m; sourceTree = "<group>"; };
 		2AEE87C4157D4A0D0017A603 /* PixelBufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelBufferView.h; sourceTree = "<group>"; };
-		2AEE87C5157D4A0D0017A603 /* PixelBufferView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelBufferView.m; sourceTree = "<group>"; };
+		2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PixelBufferView.mm; sourceTree = "<group>"; };
+		2AEE87C8157E3A220017A603 /* Renderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderable.h; sourceTree = "<group>"; };
+		2AEE87C9157E3AC00017A603 /* FlowTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowTypes.h; sourceTree = "<group>"; };
+		2AEE87CA157E3B670017A603 /* FractalEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FractalEffect.h; sourceTree = "<group>"; };
+		2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FractalEffect.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,15 +125,17 @@
 		2AEE8784157D45670017A603 /* Flow2D */ = {
 			isa = PBXGroup;
 			children = (
+				2AEE87C7157E38200017A603 /* Effects */,
 				2AEE878D157D45670017A603 /* AppDelegate.h */,
 				2AEE878E157D45670017A603 /* AppDelegate.m */,
 				2AEE8790157D45670017A603 /* MainStoryboard_iPhone.storyboard */,
 				2AEE8793157D45670017A603 /* MainStoryboard_iPad.storyboard */,
 				2AEE8796157D45670017A603 /* ViewController.h */,
-				2AEE8797157D45670017A603 /* ViewController.m */,
+				2AEE8797157D45670017A603 /* ViewController.mm */,
 				2AEE8785157D45670017A603 /* Supporting Files */,
 				2AEE87C4157D4A0D0017A603 /* PixelBufferView.h */,
-				2AEE87C5157D4A0D0017A603 /* PixelBufferView.m */,
+				2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */,
+				2AEE87C9157E3AC00017A603 /* FlowTypes.h */,
 			);
 			path = Flow2D;
 			sourceTree = "<group>";
@@ -157,6 +168,19 @@
 				2AEE87A8157D45670017A603 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2AEE87C7157E38200017A603 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				2AEE87C8157E3A220017A603 /* Renderable.h */,
+				2AEE87CA157E3B670017A603 /* FractalEffect.h */,
+				2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */,
+				2A9AF4C3157E4465000CC666 /* TestEffect.h */,
+				2A9AF4C5157E4488000CC666 /* TestEffect.cpp */,
+				2A9AF4C7157E4D20000CC666 /* RGBABuffer.h */,
+			);
+			name = Effects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +292,10 @@
 			files = (
 				2AEE878B157D45670017A603 /* main.m in Sources */,
 				2AEE878F157D45670017A603 /* AppDelegate.m in Sources */,
-				2AEE8798157D45670017A603 /* ViewController.m in Sources */,
-				2AEE87C6157D4A0D0017A603 /* PixelBufferView.m in Sources */,
+				2AEE8798157D45670017A603 /* ViewController.mm in Sources */,
+				2AEE87C6157D4A0D0017A603 /* PixelBufferView.mm in Sources */,
+				2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */,
+				2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +475,7 @@
 				2AEE87B2157D45670017A603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AEE87B3157D45670017A603 /* Build configuration list for PBXNativeTarget "Flow2DTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +484,7 @@
 				2AEE87B5157D45670017A603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,14 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef unsigned int rgbaPixel;
-typedef unsigned char rgbaComponent;
+#include "FlowTypes.h"
+#include "Renderable.h"
 
 @interface PixelBufferView : UIView
 
-@property (readonly) rgbaPixel* rgbaPixels;
-@property (readonly) rgbaComponent* rgbaComponents;
-@property (readonly) int width;
-@property (readonly) int height;
+- (void)addEffect:(Renderable*)effect;
 
 @end
