@@ -18,6 +18,7 @@
 -(void)setupPinchRecognizerWithView:(UIView*)view;
 -(void)handlePinchBeganEvent:(UIPinchGestureRecognizer*)recognizer;
 -(void)handlePinchChangedEvent:(UIPinchGestureRecognizer*)recognizer;
+-(CGPoint)pointInRegion:(MandelbrotRegion const&)region ofPointInView:(CGPoint const&)pointInViewCoordinates;
 
 @end
 
@@ -65,21 +66,33 @@
 -(void)handlePinchChangedEvent:(UIPinchGestureRecognizer*)recognizer
 {
     MandelbrotRegion newVisibleRegion = mRegionAtAtStartOfPinch;
-    [ZoomController scaleRegion:newVisibleRegion byScaleFactor:[recognizer scale]];
+    
+    CGPoint centreInViewCoordinates = [recognizer locationInView:[self mView]];
+    CGPoint centreInMandelbrotCoordinates = [self pointInRegion:mRegionAtAtStartOfPinch ofPointInView:centreInViewCoordinates];
+    
+    [ZoomController scaleRegion:newVisibleRegion aboutCentre:centreInMandelbrotCoordinates byScaleFactor:[recognizer scale]];
+    
     mEffect->setVisibleRegion(newVisibleRegion);
 
     [self.mView setNeedsDisplay];
 }
 
-+(void)scaleRegion:(MandelbrotRegion&)region byScaleFactor:(float)scaleFactor;
+-(CGPoint)pointInRegion:(MandelbrotRegion const&)region ofPointInView:(CGPoint const&)pointInViewCoordinates
 {
-    float centreX = (region.right + region.left) / 2.0;
-    float centreY = (region.top + region.bottom) / 2.0;
-    
-    region.left = centreX + (scaleFactor * (region.left - centreX));
-    region.right = centreX + (scaleFactor * (region.right - centreX));
-    region.top = centreY + (scaleFactor * (region.top - centreY));
-    region.bottom = centreY + (scaleFactor * (region.bottom - centreY));
+//    NSLog(@"pointInRegion viewX:%.2f viewW:%.2f", pointInViewCoordinates.x, [self mView].bounds.size.width);
+    return CGPointMake(
+                       region.left + ((pointInViewCoordinates.x / [self mView].bounds.size.width) * (region.right - region.left)),
+                       region.bottom + ((pointInViewCoordinates.y / [self mView].bounds.size.height) * (region.top - region.bottom))
+                       );
+}
+
+                                                         
++(void)scaleRegion:(MandelbrotRegion&)region aboutCentre:(CGPoint&)centre byScaleFactor:(float)scaleFactor
+{
+    region.left = centre.x + ((region.left - centre.x) / scaleFactor);
+    region.right = centre.x + ((region.right - centre.x) / scaleFactor);
+    region.top = centre.y + ((region.top - centre.y) / scaleFactor);
+    region.bottom = centre.y + ((region.bottom - centre.y) / scaleFactor);
 }
 
 @end

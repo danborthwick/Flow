@@ -32,10 +32,13 @@ rgbaPixel MandelbrotRender::colourOfPixel(int pixelX, int pixelY)
     float mandelbrotWidth = mRegionToRender.right - mRegionToRender.left;
     float mandelbrotHeight = mRegionToRender.top - mRegionToRender.bottom;
     
-    // Note the 90 degree rotation
+/*    // Note the 90 degree rotation
     float mandelbrotX = mRegionToRender.left + ((pixelY * mandelbrotWidth) / mTarget.height);
     float mandelbrotY = mRegionToRender.bottom + ((pixelX * mandelbrotHeight) / mTarget.width);
-    
+*/  
+    float mandelbrotX = mRegionToRender.left + ((pixelX * mandelbrotWidth) / mTarget.width);
+    float mandelbrotY = mRegionToRender.bottom + ((pixelY * mandelbrotHeight) / mTarget.height);
+
     int iterations = iterationsForEscapeTimeOfPoint(mandelbrotX, mandelbrotY);
     return colourForIteration(iterations);
 }

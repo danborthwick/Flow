@@ -30,8 +30,8 @@ int frameCount = 0;
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        rgbaBuffer.width = 320;
-        rgbaBuffer.height = 480;
+        rgbaBuffer.width = 480;
+        rgbaBuffer.height = 320;
         [self allocateFrameBuffer];
         [self initialiseAnimation];
     }
@@ -64,9 +64,6 @@ int frameCount = 0;
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    NSLog(@"Drawing!!");
-    
     pRenderer->render(rgbaBuffer, frameCount);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
