@@ -9,27 +9,36 @@
 #import "ZoomControllerTests.h"
 
 #import "ZoomController.h"
-#include "MandelbrotRender.h"
 
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 
 @implementation ZoomControllerTests
 
--(void)testGivenAUnitRegion_whenScaledByTwo_thenResultIsTwoByTwoRegion
+-(void)testGivenAUnitRegion_whenZoomedByTwoAboutOrigin_thenResultIsOneByOneRegion
 {
-    MandelbrotRegion region;
-    region.left = -1.0f;
-    region.right = 1.0f;
-    region.bottom = -1.0f;
-    region.top = 1.0f;
+    MandelbrotRegion region = MandelbrotRegion::unitRegion();
+    CGPoint centre = CGPointMake(0, 0);
     
-    [ZoomController scaleRegion:region byScaleFactor:2.0f];
+    [ZoomController zoomRegion:region aboutCentre:centre byZoomFactor:2.0f];
     
-    assertThatFloat(region.left, equalToFloat(-2.0f));
-    assertThatFloat(region.right, equalToFloat(2.0f));
-    assertThatFloat(region.bottom, equalToFloat(-2.0f));
-    assertThatFloat(region.top, equalToFloat(2.0f));
+    assertThatFloat(region.left, equalToFloat(-0.5f));
+    assertThatFloat(region.right, equalToFloat(0.5f));
+    assertThatFloat(region.bottom, equalToFloat(-0.5f));
+    assertThatFloat(region.top, equalToFloat(0.5f));
+}
+
+-(void)testGivenAUnitRegion_whenZoomedByTwoAboutCorner_thenResultIsOneByOneRegion
+{
+    MandelbrotRegion region = MandelbrotRegion::unitRegion();
+    CGPoint centre = CGPointMake(-1.0f, -1.0f);
+    
+    [ZoomController zoomRegion:region aboutCentre:centre byZoomFactor:2.0f];
+    
+    assertThatFloat(region.left, equalToFloat(-1.0f));
+    assertThatFloat(region.right, equalToFloat(-0.0f));
+    assertThatFloat(region.bottom, equalToFloat(-1.0f));
+    assertThatFloat(region.top, equalToFloat(-0.0f));
 }
 
 @end

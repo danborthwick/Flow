@@ -30,8 +30,8 @@ int frameCount = 0;
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        rgbaBuffer.width = 480;
-        rgbaBuffer.height = 320;
+        rgbaBuffer.width = 160;
+        rgbaBuffer.height = 80;
         [self allocateFrameBuffer];
         [self initialiseAnimation];
     }
@@ -80,8 +80,9 @@ int frameCount = 0;
     CFRelease(colorSpace);
 
     CGImageRef image = CGBitmapContextCreateImage(bitmapContext);
-                                     
-    CGContextDrawImage(context, CGRectMake(0, 0, rgbaBuffer.width, rgbaBuffer.height), image);
+    
+    CGSize viewSize = self.bounds.size;
+    CGContextDrawImage(context, CGRectMake(0, 0, viewSize.width, viewSize.height), image);
     CGImageRelease(image);
     CGContextRelease(bitmapContext);
     

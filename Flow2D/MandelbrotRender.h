@@ -19,6 +19,8 @@ public:
     float right;
     float top;
     float bottom;
+    
+    static MandelbrotRegion unitRegion();
 };
 
 class MandelbrotRender

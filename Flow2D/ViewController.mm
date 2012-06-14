@@ -10,16 +10,19 @@
 
 #include "FractalEffect.h"
 #import "PixelBufferView.h"
+#import "PanController.h"
 #import "ZoomController.h"
 
 @interface ViewController ()
 
+@property PanController* mPanController;
 @property ZoomController* mZoomController;
 
 @end
 
 @implementation ViewController
 
+@synthesize mPanController;
 @synthesize mZoomController;
 
 - (void)viewDidLoad
@@ -30,7 +33,9 @@
 
     FractalEffect* pEffect = new FractalEffect;
     [pixelBufferView addEffect:pEffect];
-    mZoomController = [[ZoomController alloc] initWithView:[self view] andEffect:pEffect];
+    
+    mPanController = [[PanController alloc] initWithView:pixelBufferView andEffect:pEffect];
+    mZoomController = [[ZoomController alloc] initWithView:pixelBufferView andEffect:pEffect];
 }
 
 - (void)viewDidUnload

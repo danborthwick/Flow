@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A508FBC158955B000ED67B7 /* PanControllerTests.mm */; };
+		2A575DC5158530FD00182200 /* PanController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A575DC4158530FD00182200 /* PanController.mm */; };
 		2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C5157E4488000CC666 /* TestEffect.cpp */; };
 		2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */; };
 		2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */; };
@@ -43,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A508FBB158955B000ED67B7 /* PanControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanControllerTests.h; sourceTree = "<group>"; };
+		2A508FBC158955B000ED67B7 /* PanControllerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PanControllerTests.mm; sourceTree = "<group>"; };
+		2A575DC3158530EE00182200 /* PanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanController.h; sourceTree = "<group>"; };
+		2A575DC4158530FD00182200 /* PanController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PanController.mm; sourceTree = "<group>"; };
 		2A9AF4C3157E4465000CC666 /* TestEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEffect.h; sourceTree = "<group>"; };
 		2A9AF4C5157E4488000CC666 /* TestEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEffect.cpp; sourceTree = "<group>"; };
 		2A9AF4C7157E4D20000CC666 /* RGBABuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBABuffer.h; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 				2AA9328D157EC917008768A9 /* ZoomController.mm */,
 				2AA93289157EC861008768A9 /* FractalController.h */,
 				2AA9328A157EC861008768A9 /* FractalController.mm */,
+				2A575DC3158530EE00182200 /* PanController.h */,
+				2A575DC4158530FD00182200 /* PanController.mm */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +198,8 @@
 				2A9AF4CF157E8609000CC666 /* HSVToRGBAConverterTests.mm */,
 				2AA9328F157ED252008768A9 /* ZoomControllerTests.h */,
 				2AA93290157ED252008768A9 /* ZoomControllerTests.mm */,
+				2A508FBB158955B000ED67B7 /* PanControllerTests.h */,
+				2A508FBC158955B000ED67B7 /* PanControllerTests.mm */,
 			);
 			path = Flow2DTests;
 			sourceTree = "<group>";
@@ -337,6 +347,7 @@
 				2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */,
 				2AA9328B157EC861008768A9 /* FractalController.mm in Sources */,
 				2AA9328E157EC917008768A9 /* ZoomController.mm in Sources */,
+				2A575DC5158530FD00182200 /* PanController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +357,7 @@
 			files = (
 				2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */,
 				2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */,
+				2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

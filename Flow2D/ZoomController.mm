@@ -39,7 +39,6 @@
     UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchEvent:)];
     [pinchRecognizer setDelegate:self];
     [view addGestureRecognizer:pinchRecognizer];
-
 }
 
 -(void)handlePinchEvent:(UIPinchGestureRecognizer*)recognizer
@@ -70,7 +69,7 @@
     CGPoint centreInViewCoordinates = [recognizer locationInView:[self mView]];
     CGPoint centreInMandelbrotCoordinates = [self pointInRegion:mRegionAtAtStartOfPinch ofPointInView:centreInViewCoordinates];
     
-    [ZoomController scaleRegion:newVisibleRegion aboutCentre:centreInMandelbrotCoordinates byScaleFactor:[recognizer scale]];
+    [ZoomController zoomRegion:newVisibleRegion aboutCentre:centreInMandelbrotCoordinates byZoomFactor:[recognizer scale]];
     
     mEffect->setVisibleRegion(newVisibleRegion);
 
@@ -87,12 +86,12 @@
 }
 
                                                          
-+(void)scaleRegion:(MandelbrotRegion&)region aboutCentre:(CGPoint&)centre byScaleFactor:(float)scaleFactor
++(void)zoomRegion:(MandelbrotRegion&)region aboutCentre:(CGPoint&)centre byZoomFactor:(float)zoomFactor
 {
-    region.left = centre.x + ((region.left - centre.x) / scaleFactor);
-    region.right = centre.x + ((region.right - centre.x) / scaleFactor);
-    region.top = centre.y + ((region.top - centre.y) / scaleFactor);
-    region.bottom = centre.y + ((region.bottom - centre.y) / scaleFactor);
+    region.left = centre.x + ((region.left - centre.x) / zoomFactor);
+    region.right = centre.x + ((region.right - centre.x) / zoomFactor);
+    region.top = centre.y + ((region.top - centre.y) / zoomFactor);
+    region.bottom = centre.y + ((region.bottom - centre.y) / zoomFactor);
 }
 
 @end

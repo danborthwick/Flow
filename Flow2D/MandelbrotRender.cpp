@@ -67,4 +67,14 @@ rgbaPixel MandelbrotRender::colourForIteration(int iteration)
     return mIterationsToRGBAColourMap[iteration];
 }
 
+MandelbrotRegion MandelbrotRegion::unitRegion()
+{
+    MandelbrotRegion region;
+    region.left = -1.0f;
+    region.right = 1.0f;
+    region.bottom = -1.0f;
+    region.top = 1.0f;
+    
+    return region;
+}
 
