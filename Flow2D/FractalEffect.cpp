@@ -14,8 +14,8 @@ FractalEffect::FractalEffect()
 {
     mVisibleRegion.left = -2;
     mVisibleRegion.right = 1;
-    mVisibleRegion.top = 1;
-    mVisibleRegion.bottom = -1;
+    mVisibleRegion.top = -1;
+    mVisibleRegion.bottom = 1;
     
 //    mpColourMapper = new GreyscaleColourMapper(MandelbrotRender::cMaxIterations, 32);
     mpColourMapper = new HSVColourMapper(MandelbrotRender::cMaxIterations, 8);

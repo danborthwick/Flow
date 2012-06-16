@@ -11,17 +11,7 @@
 
 #include "LinearHSVColourMapper.h"
 #include "RGBABuffer.h"
-
-class MandelbrotRegion
-{
-public:
-    float left;
-    float right;
-    float top;
-    float bottom;
-    
-    static MandelbrotRegion unitRegion();
-};
+#include "MandelbrotRegion.h"
 
 class MandelbrotRender
 {
@@ -37,6 +27,8 @@ public:
     MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper);
     
     void perform();
+    
+    static void logRegionToRender();
     
 private:    
     rgbaPixel colourOfPixel(int pixelX, int pixelY);

@@ -13,6 +13,7 @@
 @interface ZoomController() {
 @private
     MandelbrotRegion mRegionAtAtStartOfPinch;
+    CGPoint mCentreOfPinchAtStartOfPinch;
 }
 
 -(void)handlePinchBeganEvent:(UIPinchGestureRecognizer*)recognizer;
@@ -42,17 +43,22 @@
 -(void)handlePinchBeganEvent:(UIPinchGestureRecognizer*)recognizer
 {
     mRegionAtAtStartOfPinch = mEffect->visibleRegion();
+    mCentreOfPinchAtStartOfPinch = [recognizer locationInView:[self mView]];
 }
 
 -(void)handlePinchChangedEvent:(UIPinchGestureRecognizer*)recognizer
 {
+    CGPoint centreInViewSpace = [recognizer locationInView:self.mView];
+    CGPoint centreInMandelbrotSpace = [self pointInRegion:mRegionAtAtStartOfPinch ofPointInView:centreInViewSpace];
+    CGPoint translationInViewSpace = CGPointMake(mCentreOfPinchAtStartOfPinch.x - centreInViewSpace.x, mCentreOfPinchAtStartOfPinch.y - centreInViewSpace.y);
+    
+    float viewToMandelbrotScaleFactor = [FractalController scaleFactorFromView:self.mView toMandelbrotRegion:mRegionAtAtStartOfPinch];
+    CGPoint translationInMandelbrotSpace = CGPointMake(translationInViewSpace.x * viewToMandelbrotScaleFactor, translationInViewSpace.y * viewToMandelbrotScaleFactor);
+    
     MandelbrotRegion newVisibleRegion = mRegionAtAtStartOfPinch;
-    
-    CGPoint centreInViewCoordinates = [recognizer locationInView:[self mView]];
-    CGPoint centreInMandelbrotCoordinates = [self pointInRegion:mRegionAtAtStartOfPinch ofPointInView:centreInViewCoordinates];
-    
-    [ZoomController zoomRegion:newVisibleRegion aboutCentre:centreInMandelbrotCoordinates byZoomFactor:[recognizer scale]];
-    
+    newVisibleRegion.scale(1.0f / recognizer.scale, centreInMandelbrotSpace);
+    newVisibleRegion.translate(translationInMandelbrotSpace);
+
     mEffect->setVisibleRegion(newVisibleRegion);
 
     [self.mView setNeedsDisplay];
@@ -63,7 +69,7 @@
 //    NSLog(@"pointInRegion viewX:%.2f viewW:%.2f", pointInViewCoordinates.x, [self mView].bounds.size.width);
     return CGPointMake(
                        region.left + ((pointInViewCoordinates.x / [self mView].bounds.size.width) * (region.right - region.left)),
-                       region.bottom + ((pointInViewCoordinates.y / [self mView].bounds.size.height) * (region.top - region.bottom))
+                       region.top + ((pointInViewCoordinates.y / [self mView].bounds.size.height) * (region.bottom - region.top))
                        );
 }
 

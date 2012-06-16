@@ -12,6 +12,10 @@
 
 int frameCount = 0;
 
+const int screenWidth = 960;
+const int screenHeight = 640;
+const int sampleSize = 16;
+
 @interface PixelBufferView()
 {
     Renderable* pRenderer;
@@ -30,8 +34,8 @@ int frameCount = 0;
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        rgbaBuffer.width = 160;
-        rgbaBuffer.height = 80;
+        rgbaBuffer.width = screenWidth / sampleSize;
+        rgbaBuffer.height = screenHeight / sampleSize;
         [self allocateFrameBuffer];
         [self initialiseAnimation];
     }

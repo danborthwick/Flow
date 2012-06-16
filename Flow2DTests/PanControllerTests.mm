@@ -15,12 +15,10 @@
 
 @implementation PanControllerTests
 
--(void)testGivenAUnitRegion_whenPannedByTwoToRight_thenResultIsOneToThreeOnXAxis
+-(void)testGivenAUnitRegion_whenTranslatedByTwoToRight_thenResultIsOneToThreeOnXAxis
 {
     MandelbrotRegion region = MandelbrotRegion::unitRegion();
-    CGPoint translation = CGPointMake(2.0f, 0.0f);
-    
-    [PanController panRegion:region byTranslation:translation];
+    region.translate(CGPointMake(2.0f, 0.0f));
     
     assertThatFloat(region.left, equalToFloat(1.0f));
     assertThatFloat(region.right, equalToFloat(3.0f));
@@ -35,6 +33,6 @@
     
     float actualScaleFactor = [PanController scaleFactorFromView:view toMandelbrotRegion:region];
 
-    assertThatFloat(actualScaleFactor, equalToFloat(2.0f / 10.0f));
+    assertThatFloat(actualScaleFactor, equalToFloat(2.0f / 20.0f));
 }
 @end

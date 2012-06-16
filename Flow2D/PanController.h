@@ -18,9 +18,6 @@
 
 -(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect;
 
-+(void)panRegion:(MandelbrotRegion&)region byTranslation:(CGPoint&)translation;
-+(float)scaleFactorFromView:(UIView*)view toMandelbrotRegion:(MandelbrotRegion const&)region;
-
 @end
 
 

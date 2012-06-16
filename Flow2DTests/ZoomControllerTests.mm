@@ -9,6 +9,7 @@
 #import "ZoomControllerTests.h"
 
 #import "ZoomController.h"
+#import "MandelbrotRegion.h"
 
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>

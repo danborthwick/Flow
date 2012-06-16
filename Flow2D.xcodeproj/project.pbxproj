@@ -32,6 +32,8 @@
 		2AEE87AA157D45670017A603 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AEE87A8157D45670017A603 /* InfoPlist.strings */; };
 		2AEE87C6157D4A0D0017A603 /* PixelBufferView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */; };
 		2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */; };
+		2AF4D0CF158D1A7100E8EC80 /* MandelbrotRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */; };
+		2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		2AEE87C9157E3AC00017A603 /* FlowTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowTypes.h; sourceTree = "<group>"; };
 		2AEE87CA157E3B670017A603 /* FractalEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FractalEffect.h; sourceTree = "<group>"; };
 		2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FractalEffect.cpp; sourceTree = "<group>"; };
+		2AF4D0CC158D1A0E00E8EC80 /* MandelbrotRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandelbrotRegion.h; sourceTree = "<group>"; };
+		2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRegion.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,8 @@
 				2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */,
 				2A9AF4CB157E65B2000CC666 /* LinearHSVColourMapper.h */,
 				2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */,
+				2AF4D0CC158D1A0E00E8EC80 /* MandelbrotRegion.h */,
+				2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				2AA9328B157EC861008768A9 /* FractalController.mm in Sources */,
 				2AA9328E157EC917008768A9 /* ZoomController.mm in Sources */,
 				2A575DC5158530FD00182200 /* PanController.mm in Sources */,
+				2AF4D0CF158D1A7100E8EC80 /* MandelbrotRegion.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +365,7 @@
 				2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */,
 				2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */,
 				2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */,
+				2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
