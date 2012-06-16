@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */; };
 		2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A508FBC158955B000ED67B7 /* PanControllerTests.mm */; };
 		2A575DC5158530FD00182200 /* PanController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A575DC4158530FD00182200 /* PanController.mm */; };
 		2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C5157E4488000CC666 /* TestEffect.cpp */; };
@@ -34,6 +35,8 @@
 		2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */; };
 		2AF4D0CF158D1A7100E8EC80 /* MandelbrotRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */; };
 		2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */; };
+		2AF4D0D4158D332F00E8EC80 /* PixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0D3158D332F00E8EC80 /* PixelBufferProvider.mm */; };
+		2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0D6158D350B00E8EC80 /* SimplePixelBufferProvider.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A122172158D3B2C009BDEDB /* ProgressivePixelBufferProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressivePixelBufferProvider.h; sourceTree = "<group>"; };
+		2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProgressivePixelBufferProvider.mm; sourceTree = "<group>"; };
 		2A508FBB158955B000ED67B7 /* PanControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanControllerTests.h; sourceTree = "<group>"; };
 		2A508FBC158955B000ED67B7 /* PanControllerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PanControllerTests.mm; sourceTree = "<group>"; };
 		2A575DC3158530EE00182200 /* PanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanController.h; sourceTree = "<group>"; };
@@ -93,6 +98,10 @@
 		2AEE87CB157E3BAF0017A603 /* FractalEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FractalEffect.cpp; sourceTree = "<group>"; };
 		2AF4D0CC158D1A0E00E8EC80 /* MandelbrotRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandelbrotRegion.h; sourceTree = "<group>"; };
 		2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRegion.cpp; sourceTree = "<group>"; };
+		2AF4D0D2158D332F00E8EC80 /* PixelBufferProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelBufferProvider.h; sourceTree = "<group>"; };
+		2AF4D0D3158D332F00E8EC80 /* PixelBufferProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PixelBufferProvider.mm; sourceTree = "<group>"; };
+		2AF4D0D5158D350B00E8EC80 /* SimplePixelBufferProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePixelBufferProvider.h; sourceTree = "<group>"; };
+		2AF4D0D6158D350B00E8EC80 /* SimplePixelBufferProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimplePixelBufferProvider.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +132,8 @@
 		2A9AF4DA157E9F63000CC666 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2AEE8796157D45670017A603 /* ViewController.h */,
+				2AEE8797157D45670017A603 /* ViewController.mm */,
 				2AA9328C157EC917008768A9 /* ZoomController.h */,
 				2AA9328D157EC917008768A9 /* ZoomController.mm */,
 				2AA93289157EC861008768A9 /* FractalController.h */,
@@ -167,17 +178,14 @@
 		2AEE8784157D45670017A603 /* Flow2D */ = {
 			isa = PBXGroup;
 			children = (
+				2AF4D0D1158D32E600E8EC80 /* Views */,
 				2A9AF4DA157E9F63000CC666 /* Controllers */,
 				2AEE87C7157E38200017A603 /* Effects */,
 				2AEE878D157D45670017A603 /* AppDelegate.h */,
 				2AEE878E157D45670017A603 /* AppDelegate.m */,
 				2AEE8790157D45670017A603 /* MainStoryboard_iPhone.storyboard */,
 				2AEE8793157D45670017A603 /* MainStoryboard_iPad.storyboard */,
-				2AEE8796157D45670017A603 /* ViewController.h */,
-				2AEE8797157D45670017A603 /* ViewController.mm */,
 				2AEE8785157D45670017A603 /* Supporting Files */,
-				2AEE87C4157D4A0D0017A603 /* PixelBufferView.h */,
-				2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */,
 				2AEE87C9157E3AC00017A603 /* FlowTypes.h */,
 			);
 			path = Flow2D;
@@ -234,6 +242,21 @@
 				2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */,
 			);
 			name = Effects;
+			sourceTree = "<group>";
+		};
+		2AF4D0D1158D32E600E8EC80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AEE87C4157D4A0D0017A603 /* PixelBufferView.h */,
+				2AEE87C5157D4A0D0017A603 /* PixelBufferView.mm */,
+				2AF4D0D2158D332F00E8EC80 /* PixelBufferProvider.h */,
+				2AF4D0D3158D332F00E8EC80 /* PixelBufferProvider.mm */,
+				2AF4D0D5158D350B00E8EC80 /* SimplePixelBufferProvider.h */,
+				2AF4D0D6158D350B00E8EC80 /* SimplePixelBufferProvider.mm */,
+				2A122172158D3B2C009BDEDB /* ProgressivePixelBufferProvider.h */,
+				2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +378,9 @@
 				2AA9328E157EC917008768A9 /* ZoomController.mm in Sources */,
 				2A575DC5158530FD00182200 /* PanController.mm in Sources */,
 				2AF4D0CF158D1A7100E8EC80 /* MandelbrotRegion.cpp in Sources */,
+				2AF4D0D4158D332F00E8EC80 /* PixelBufferProvider.mm in Sources */,
+				2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */,
+				2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

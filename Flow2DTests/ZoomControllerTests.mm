@@ -21,12 +21,12 @@
     MandelbrotRegion region = MandelbrotRegion::unitRegion();
     CGPoint centre = CGPointMake(0, 0);
     
-    [ZoomController zoomRegion:region aboutCentre:centre byZoomFactor:2.0f];
+    region.scale(2.0f, centre);
     
-    assertThatFloat(region.left, equalToFloat(-0.5f));
-    assertThatFloat(region.right, equalToFloat(0.5f));
-    assertThatFloat(region.bottom, equalToFloat(-0.5f));
-    assertThatFloat(region.top, equalToFloat(0.5f));
+    assertThatFloat(region.left, equalToFloat(-2.0f));
+    assertThatFloat(region.right, equalToFloat(2.0f));
+    assertThatFloat(region.bottom, equalToFloat(-2.0f));
+    assertThatFloat(region.top, equalToFloat(2.0f));
 }
 
 -(void)testGivenAUnitRegion_whenZoomedByTwoAboutCorner_thenResultIsOneByOneRegion
@@ -34,12 +34,12 @@
     MandelbrotRegion region = MandelbrotRegion::unitRegion();
     CGPoint centre = CGPointMake(-1.0f, -1.0f);
     
-    [ZoomController zoomRegion:region aboutCentre:centre byZoomFactor:2.0f];
+    region.scale(2.0f, centre);
     
     assertThatFloat(region.left, equalToFloat(-1.0f));
-    assertThatFloat(region.right, equalToFloat(-0.0f));
+    assertThatFloat(region.right, equalToFloat(3.0f));
     assertThatFloat(region.bottom, equalToFloat(-1.0f));
-    assertThatFloat(region.top, equalToFloat(-0.0f));
+    assertThatFloat(region.top, equalToFloat(3.0f));
 }
 
 @end

@@ -24,7 +24,7 @@
 
 @implementation ZoomController
 
--(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect
+-(id)initWithView:(PixelBufferView*)view andEffect:(FractalEffect*)effect
 {
     self = [super initWithView:view andEffect:effect andRecognizerClass:[UIPinchGestureRecognizer class]];
     if (self)
@@ -71,15 +71,6 @@
                        region.left + ((pointInViewCoordinates.x / [self mView].bounds.size.width) * (region.right - region.left)),
                        region.top + ((pointInViewCoordinates.y / [self mView].bounds.size.height) * (region.bottom - region.top))
                        );
-}
-
-                                                         
-+(void)zoomRegion:(MandelbrotRegion&)region aboutCentre:(CGPoint&)centre byZoomFactor:(float)zoomFactor
-{
-    region.left = centre.x + ((region.left - centre.x) / zoomFactor);
-    region.right = centre.x + ((region.right - centre.x) / zoomFactor);
-    region.top = centre.y + ((region.top - centre.y) / zoomFactor);
-    region.bottom = centre.y + ((region.bottom - centre.y) / zoomFactor);
 }
 
 @end

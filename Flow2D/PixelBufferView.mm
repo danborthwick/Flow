@@ -8,21 +8,25 @@
 
 #import "PixelBufferView.h"
 
+#import "PixelBufferProvider.h"
+#import "ProgressivePixelBufferProvider.h"
 #import "Renderable.h"
-
-int frameCount = 0;
+#import "SimplePixelBufferProvider.h"
 
 const int screenWidth = 960;
 const int screenHeight = 640;
 const int sampleSize = 16;
 
+int frameCount = 0;
+
 @interface PixelBufferView()
 {
     Renderable* pRenderer;
-    RGBABuffer rgbaBuffer;
 }
 
-- (void)allocateFrameBuffer;
+@property ProgressivePixelBufferProvider* bufferProvider;
+
+- (void)initialiseBufferProvider;
 - (void)initialiseAnimation;
 - (void)tickAnimation;
 
@@ -30,22 +34,24 @@ const int sampleSize = 16;
 
 @implementation PixelBufferView
 
+@synthesize bufferProvider;
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        rgbaBuffer.width = screenWidth / sampleSize;
-        rgbaBuffer.height = screenHeight / sampleSize;
-        [self allocateFrameBuffer];
+        [self initialiseBufferProvider];
         [self initialiseAnimation];
     }
     
     return self;
 }
 
-- (void)allocateFrameBuffer
+- (void)initialiseBufferProvider
 {
-    rgbaBuffer.buffer = (rgbaPixel*) malloc(rgbaBuffer.width * rgbaBuffer.height * sizeof(rgbaPixel));
+//    bufferProvider = [[SimplePixelBufferProvider alloc] initWithScreenWidth:screenWidth andScreenHeight:screenHeight];
+    
+    bufferProvider = [[ProgressivePixelBufferProvider alloc] initWithScreenWidth:screenWidth andScreenHeight:screenHeight andMinimumDownsample:1 andMaximumDownsample:6];
 }
 
 - (void)initialiseAnimation
@@ -58,7 +64,11 @@ const int sampleSize = 16;
 - (void)tickAnimation
 {
 //    NSLog(@"tickAnimation");
-    [self setNeedsDisplay];
+
+    if ([bufferProvider hasLowerDownsampleLevel]) {
+        [bufferProvider progressToNextDownsampleLevel];
+        [super setNeedsDisplay];
+    }
 }
 
 - (void)addEffect:(Renderable*)effect
@@ -68,17 +78,18 @@ const int sampleSize = 16;
 
 - (void)drawRect:(CGRect)rect
 {
-    pRenderer->render(rgbaBuffer, frameCount);
-    
+    RGBABuffer const& buffer = [bufferProvider buffer];
+    pRenderer->render(buffer, frameCount);
+        
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef bitmapContext = CGBitmapContextCreate(
-                                                       rgbaBuffer.buffer,
-                                                       rgbaBuffer.width,
-                                                       rgbaBuffer.height,
+                                                       buffer.buffer,
+                                                       buffer.width,
+                                                       buffer.height,
                                                        8, // bitsPerComponent
-                                                       4 * rgbaBuffer.width, // bytesPerRow
+                                                       4 * buffer.width, // bytesPerRow
                                                        colorSpace,
                                                        kCGImageAlphaNoneSkipLast);
     CFRelease(colorSpace);
@@ -91,6 +102,13 @@ const int sampleSize = 16;
     CGContextRelease(bitmapContext);
     
     frameCount = (frameCount + 1) % 256;
+    
+}
+
+-(void)setNeedsDisplay
+{
+    [bufferProvider setDownsamplingToMaximum];
+    [super setNeedsDisplay];
 }
 
 

@@ -13,8 +13,6 @@
 
 @interface ZoomController : FractalController
 
--(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect;
-
-+(void)zoomRegion:(MandelbrotRegion&)region aboutCentre:(CGPoint&)centre byZoomFactor:(float)zoomFactor;
+-(id)initWithView:(PixelBufferView*)view andEffect:(FractalEffect*)effect;
 
 @end

@@ -23,7 +23,7 @@
 
 @implementation PanController
 
--(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect
+-(id)initWithView:(PixelBufferView*)view andEffect:(FractalEffect*)effect
 {
     self = [super initWithView:view andEffect:effect andRecognizerClass:[UIPanGestureRecognizer class]];
     if (self)

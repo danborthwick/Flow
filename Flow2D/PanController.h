@@ -16,7 +16,7 @@
 
 @interface PanController : FractalController
 
--(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect;
+-(id)initWithView:(PixelBufferView*)view andEffect:(FractalEffect*)effect;
 
 @end
 
