@@ -39,12 +39,12 @@ GreyscaleColourMapper::GreyscaleColourMapper(int maximumValue, int cycles)
 
 //----------------------
 
-HSVColourMapper::HSVColourMapper(int maximumValue, int cycles)
+HSVColourMapper::HSVColourMapper(int maximumValue, int valuesBeforeRepeat)
 {
     allocateRGBATableOfSize(maximumValue);
     
     for (int i=0; i<maximumValue; i++) {
-        float normalisedHue = (float) i / (float) maximumValue;
+        float normalisedHue = (float) (i % valuesBeforeRepeat) / valuesBeforeRepeat;
         mRGBATable[i] = mHSVConverter.rgbaFromHSV(normalisedHue, 1.0f, 1.0f);
     }
     

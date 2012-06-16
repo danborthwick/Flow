@@ -37,7 +37,7 @@ public:
 class HSVColourMapper : public LinearColourMapper
 {
 public:
-    HSVColourMapper(int maximumValue, int cycles);
+    HSVColourMapper(int maximumValue, int valuesBeforeRepeat);
 private:
     HSVToRGBAConverter mHSVConverter;
 };

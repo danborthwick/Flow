@@ -18,7 +18,7 @@ FractalEffect::FractalEffect()
     mVisibleRegion.bottom = 1;
     
 //    mpColourMapper = new GreyscaleColourMapper(MandelbrotRender::cMaxIterations, 32);
-    mpColourMapper = new HSVColourMapper(MandelbrotRender::cMaxIterations, 8);
+    mpColourMapper = new HSVColourMapper(MandelbrotRender::cMaxIterations, 128);
 }
 
 void FractalEffect::render(RGBABuffer const& rgbaBuffer, int elapsedFrames)
