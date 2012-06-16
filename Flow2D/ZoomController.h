@@ -11,9 +11,10 @@
 #import "FractalController.h"
 #import "MandelbrotRender.h"
 
-@interface ZoomController : FractalController<UIGestureRecognizerDelegate>
+@interface ZoomController : FractalController
 
--(void)handlePinchEvent:(UIPinchGestureRecognizer*)recognizer;
+-(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect;
+
 +(void)zoomRegion:(MandelbrotRegion&)region aboutCentre:(CGPoint&)centre byZoomFactor:(float)zoomFactor;
 
 @end

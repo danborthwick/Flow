@@ -15,7 +15,6 @@
     MandelbrotRegion mRegionAtAtStartOfPinch;
 }
 
--(void)setupPinchRecognizerWithView:(UIView*)view;
 -(void)handlePinchBeganEvent:(UIPinchGestureRecognizer*)recognizer;
 -(void)handlePinchChangedEvent:(UIPinchGestureRecognizer*)recognizer;
 -(CGPoint)pointInRegion:(MandelbrotRegion const&)region ofPointInView:(CGPoint const&)pointInViewCoordinates;
@@ -26,35 +25,18 @@
 
 -(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect
 {
-    self = [super initWithView:view andEffect:effect];
+    self = [super initWithView:view andEffect:effect andRecognizerClass:[UIPinchGestureRecognizer class]];
     if (self)
     {
-        [self setupPinchRecognizerWithView:view];
+        [self mapStatesToSelectors];
     }
     return self;
 }
 
--(void)setupPinchRecognizerWithView:(UIView*)view
+-(void)mapStatesToSelectors
 {
-    UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchEvent:)];
-    [pinchRecognizer setDelegate:self];
-    [view addGestureRecognizer:pinchRecognizer];
-}
-
--(void)handlePinchEvent:(UIPinchGestureRecognizer*)recognizer
-{
-    switch ([recognizer state]) {
-        case UIGestureRecognizerStateBegan:
-            [self handlePinchBeganEvent:recognizer];
-            break;
-            
-        case UIGestureRecognizerStateChanged:
-            [self handlePinchChangedEvent:recognizer];
-            break;
-            
-        default:
-            break;
-    }
+    [self mapGestureState:UIGestureRecognizerStateBegan toSelector:@selector(handlePinchBeganEvent:)];
+    [self mapGestureState:UIGestureRecognizerStateChanged toSelector:@selector(handlePinchChangedEvent:)];
 }
 
 -(void)handlePinchBeganEvent:(UIPinchGestureRecognizer*)recognizer

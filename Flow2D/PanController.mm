@@ -15,7 +15,7 @@
     MandelbrotRegion mRegionAtAtStartOfPan;
 }
 
--(void)setupPanRecognizerWithView:(UIView*)view;
+-(void)mapStatesToSelectors;
 -(void)handlePanBeganEvent:(UIPanGestureRecognizer*)recognizer;
 -(void)handlePanChangedEvent:(UIPanGestureRecognizer*)recognizer;
 
@@ -25,35 +25,19 @@
 
 -(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect
 {
-    self = [super initWithView:view andEffect:effect];
+    self = [super initWithView:view andEffect:effect andRecognizerClass:[UIPanGestureRecognizer class]];
     if (self)
     {
-        [self setupPanRecognizerWithView:view];
+        [self mapStatesToSelectors];
     }
     return self;
 }
 
--(void)setupPanRecognizerWithView:(UIView*)view
-{
-    UIPanGestureRecognizer* panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanEvent:)];
-    [panRecognizer setDelegate:self];
-    [view addGestureRecognizer:panRecognizer];
-}
 
--(void)handlePanEvent:(UIPanGestureRecognizer*)recognizer
+-(void)mapStatesToSelectors
 {
-    switch ([recognizer state]) {
-        case UIGestureRecognizerStateBegan:
-            [self handlePanBeganEvent:recognizer];
-            break;
-            
-        case UIGestureRecognizerStateChanged:
-            [self handlePanChangedEvent:recognizer];
-            break;
-            
-        default:
-            break;
-    }
+    [self mapGestureState:UIGestureRecognizerStateBegan toSelector:@selector(handlePanBeganEvent:)];
+    [self mapGestureState:UIGestureRecognizerStateChanged toSelector:@selector(handlePanChangedEvent:)];
 }
 
 -(void)handlePanBeganEvent:(UIPanGestureRecognizer*)recognizer

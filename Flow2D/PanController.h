@@ -14,9 +14,10 @@
 #import "FractalController.h"
 #import "MandelbrotRender.h"
 
-@interface PanController : FractalController<UIGestureRecognizerDelegate>
+@interface PanController : FractalController
 
--(void)handlePanEvent:(UIPanGestureRecognizer*)recognizer;
+-(id)initWithView:(UIView *)view andEffect:(FractalEffect*)effect;
+
 +(void)panRegion:(MandelbrotRegion&)region byTranslation:(CGPoint&)translation;
 +(float)scaleFactorFromView:(UIView*)view toMandelbrotRegion:(MandelbrotRegion const&)region;
 
