@@ -13,6 +13,8 @@
 #include "RGBABuffer.h"
 #include "MandelbrotRegion.h"
 
+typedef double coord;
+
 class MandelbrotRender
 {
 public:
@@ -33,7 +35,7 @@ public:
 private:    
     rgbaPixel colourOfPixel(int pixelX, int pixelY);
     rgbaPixel colourForIteration(int iteration);
-    float iterationsForEscapeTimeOfPoint(float pointX, float pointY);
+    int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
 };
 
 

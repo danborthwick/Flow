@@ -8,7 +8,6 @@
 
 #include "MandelbrotRender.h"
 
-
 const int MandelbrotRender::cMaxIterations = 128;
 
 MandelbrotRender::MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper)
@@ -29,32 +28,34 @@ void MandelbrotRender::perform()
 
 rgbaPixel MandelbrotRender::colourOfPixel(int pixelX, int pixelY)
 {
-    float mandelbrotWidth = mRegionToRender.right - mRegionToRender.left;
-    float mandelbrotHeight = mRegionToRender.top - mRegionToRender.bottom;
+    coord mandelbrotWidth = mRegionToRender.right - mRegionToRender.left;
+    coord mandelbrotHeight = mRegionToRender.top - mRegionToRender.bottom;
     
-    float mandelbrotX = mRegionToRender.left + ((pixelX * mandelbrotWidth) / mTarget.width);
-    float mandelbrotY = mRegionToRender.bottom + ((pixelY * mandelbrotHeight) / mTarget.height);
+    coord mandelbrotX = mRegionToRender.left + ((pixelX * mandelbrotWidth) / mTarget.width);
+    coord mandelbrotY = mRegionToRender.bottom + ((pixelY * mandelbrotHeight) / mTarget.height);
 
     int iterations = iterationsForEscapeTimeOfPoint(mandelbrotX, mandelbrotY);
     return colourForIteration(iterations);
 }
 
-float MandelbrotRender::iterationsForEscapeTimeOfPoint(float pointX, float pointY)
+int MandelbrotRender::iterationsForEscapeTimeOfPoint(coord pointX, coord pointY)
 {
     int iterations = 0;
     
-    float x = 0;
-    float y = 0;
+    coord x = 0;
+    coord y = 0;
+    coord xSquared;
+    coord ySquared;
     
-    while ((x*x + y*y < 2*2) &&  (iterations < cMaxIterations))
-    {
-        float xTemp = x*x - y*y + pointX;
-        y = 2*x*y + pointY;
+    do {
+        xSquared = x*x;
+        ySquared = y*y;
         
-        x = xTemp;
-        
-        iterations++;
+        y = 2.0*x*y + pointY;        
+        x = xSquared - ySquared + pointX;
     }
+    while (((xSquared + ySquared) < 4.0) && (++iterations < cMaxIterations));
+    
     return iterations;
 }
 

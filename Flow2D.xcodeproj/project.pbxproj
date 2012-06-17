@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A11CA24158D5D7F005DCA07 /* Profiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11CA23158D5D7F005DCA07 /* Profiler.m */; };
 		2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */; };
 		2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A508FBC158955B000ED67B7 /* PanControllerTests.mm */; };
 		2A575DC5158530FD00182200 /* PanController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A575DC4158530FD00182200 /* PanController.mm */; };
@@ -50,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A11CA22158D5D7F005DCA07 /* Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = "<group>"; };
+		2A11CA23158D5D7F005DCA07 /* Profiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profiler.m; sourceTree = "<group>"; };
+		2A11CA26158D6345005DCA07 /* ProfileResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileResults.h; sourceTree = "<group>"; };
 		2A122172158D3B2C009BDEDB /* ProgressivePixelBufferProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressivePixelBufferProvider.h; sourceTree = "<group>"; };
 		2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProgressivePixelBufferProvider.mm; sourceTree = "<group>"; };
 		2A508FBB158955B000ED67B7 /* PanControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanControllerTests.h; sourceTree = "<group>"; };
@@ -187,6 +191,9 @@
 				2AEE8793157D45670017A603 /* MainStoryboard_iPad.storyboard */,
 				2AEE8785157D45670017A603 /* Supporting Files */,
 				2AEE87C9157E3AC00017A603 /* FlowTypes.h */,
+				2A11CA22158D5D7F005DCA07 /* Profiler.h */,
+				2A11CA23158D5D7F005DCA07 /* Profiler.m */,
+				2A11CA26158D6345005DCA07 /* ProfileResults.h */,
 			);
 			path = Flow2D;
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 				2AF4D0D4158D332F00E8EC80 /* PixelBufferProvider.mm in Sources */,
 				2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */,
 				2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */,
+				2A11CA24158D5D7F005DCA07 /* Profiler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

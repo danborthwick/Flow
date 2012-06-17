@@ -23,6 +23,7 @@ public:
     
 private:
     void renderColourMapping(RGBABuffer const& rgbaBuffer);
+    void setTestRegion();
     
 private:
     MandelbrotRegion mVisibleRegion;

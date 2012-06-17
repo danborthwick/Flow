@@ -60,6 +60,7 @@
     newVisibleRegion.translate(translationInMandelbrotSpace);
 
     mEffect->setVisibleRegion(newVisibleRegion);
+    //NSLog(@"Region (%.12f, %.12f) -> (%.12f, %.12f)", newVisibleRegion.left, newVisibleRegion.top, newVisibleRegion.right, newVisibleRegion.bottom);
 
     [self.mView setNeedsDisplay];
 }

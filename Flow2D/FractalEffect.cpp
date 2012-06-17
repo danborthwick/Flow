@@ -17,6 +17,8 @@ FractalEffect::FractalEffect()
     mVisibleRegion.top = -1;
     mVisibleRegion.bottom = 1;
     
+//    setTestRegion();
+    
 //    mpColourMapper = new GreyscaleColourMapper(MandelbrotRender::cMaxIterations, 32);
     mpColourMapper = new HSVColourMapper(MandelbrotRender::cMaxIterations, 128);
 }
@@ -51,4 +53,12 @@ MandelbrotRegion const& FractalEffect::visibleRegion() const
 void FractalEffect::setVisibleRegion(MandelbrotRegion const& newVisibleRegion)
 {
     mVisibleRegion = newVisibleRegion;
+}
+
+void FractalEffect::setTestRegion()
+{
+    mVisibleRegion.left =   -0.740217328072f;
+    mVisibleRegion.right =  -0.740213274956f;
+    mVisibleRegion.top =    -0.184914901853f;
+    mVisibleRegion.bottom = -0.184912174940f;
 }

@@ -53,11 +53,11 @@
     CGFloat viewToMandelbrotScaleFactor = [PanController scaleFactorFromView:[self mView] toMandelbrotRegion:newVisibleRegion];
     CGPoint translationInMandelbrotCoordinates = CGPointMake(-translationInViewCoordinates.x * viewToMandelbrotScaleFactor, -translationInViewCoordinates.y * viewToMandelbrotScaleFactor);
 
-    NSLog(@"Translate view(%.0f, %.0f) mandelbrot(%.4f, %.4f)",
+    /*NSLog(@"Translate view(%.0f, %.0f) mandelbrot(%.4f, %.4f)",
           translationInViewCoordinates.x, translationInViewCoordinates.y,
           translationInMandelbrotCoordinates.x, translationInMandelbrotCoordinates.y
           );
- 
+ */
     newVisibleRegion.translate(translationInMandelbrotCoordinates);
     mEffect->setVisibleRegion(newVisibleRegion);
     
