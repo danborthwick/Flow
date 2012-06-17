@@ -52,7 +52,7 @@ int frameCount = 0;
 {
 //    bufferProvider = [[SimplePixelBufferProvider alloc] initWithScreenWidth:screenWidth andScreenHeight:screenHeight];
     
-    bufferProvider = [[ProgressivePixelBufferProvider alloc] initWithScreenWidth:screenWidth andScreenHeight:screenHeight andMinimumDownsample:1 andMaximumDownsample:6];
+    bufferProvider = [[ProgressivePixelBufferProvider alloc] initWithScreenWidth:screenWidth andScreenHeight:screenHeight andMinimumDownsample:1 andMaximumDownsample:4];
 }
 
 - (void)initialiseAnimation
