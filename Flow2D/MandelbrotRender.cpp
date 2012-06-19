@@ -8,6 +8,12 @@
 
 #include "MandelbrotRender.h"
 
+#define USE_ASSEMBLY_IF_AVAILABLE 1
+
+#if defined (SUPPORT_ASM) && USE_ASSEMBLY_IF_AVAILABLE
+    #define USE_ASSEMBLY 1
+#endif
+
 const int MandelbrotRender::cMaxIterations = 128;
 
 MandelbrotRender::MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper)
@@ -48,16 +54,63 @@ int MandelbrotRender::iterationsForEscapeTimeOfPoint(coord pointX, coord pointY)
     coord ySquared;
     
     do {
-        xSquared = x*x;
-        ySquared = y*y;
-        
-        y = 2.0*x*y + pointY;        
-        x = xSquared - ySquared + pointX;
+#ifdef USE_ASSEMBLY
+        iterateAssembly(x, y, xSquared, ySquared, pointX, pointY);
+#else
+        iterate(x, y, xSquared, ySquared, pointX, pointY);
+#endif
     }
     while (((xSquared + ySquared) < 4.0) && (++iterations < cMaxIterations));
     
     return iterations;
 }
+
+void MandelbrotRender::iterate(coord& x, coord& y, coord& xSquared, coord& ySquared, coord const& pointX, coord const& pointY) const {
+    xSquared = x*x;
+    ySquared = y*y;
+    
+    y = 2.0*x*y + pointY;        
+    x = xSquared - ySquared + pointX;    
+}
+
+#ifdef SUPPORT_ASM
+void MandelbrotRender::iterateAssembly(coord& x, coord& y, coord& xSquared, coord& ySquared, coord const& pointX, coord const& pointY) const {
+
+    static const coord two = 2.0;
+    
+    asm volatile (
+                  "fldmiad %0, {d0}     \n\t"
+                  "fldmiad %1, {d1}     \n\t"
+                  "fldmiad %2, {d2}     \n\t"
+                  "fldmiad %3, {d3}     \n\t"
+                  "fldmiad %4, {d4}     \n\t"
+                  "fldmiad %5, {d5}     \n\t"
+                  "fldmiad %6, {d6}     \n\t"
+                  
+                  "fmuld d2, d0, d0     \n\t"   // xSquared = x*x;
+                  "fmuld d3, d1, d1     \n\t"   // ySquared = y*y;
+
+                                                // y = 2.0*x*y + pointY;        
+                  "fmuld d1, d0, d1     \n\t"   // y = x*y
+                  "fmuld d1, d1, d6     \n\t"   // y = x*y*2
+                  "faddd d1, d1, d5     \n\t"   // y = x*y*2 + pointY
+                  
+                                                // x = xSquared - ySquared + pointX;    
+                  "fsubd d0, d2, d3     \n\t"   // x = xSqaured - ySquared
+                  "faddd d0, d0, d4     \n\t"   // x = xSquared - ySquared + pointX
+                  
+                  "fstmiad %0, {d0}    \n\t"
+                  "fstmiad %1, {d1}    \n\t"
+                  "fstmiad %2, {d2}    \n\t"
+                  "fstmiad %3, {d3}    \n\t"
+                  : 
+                  : "r" (&x), "r" (&y), "r" (&xSquared), "r" (&ySquared), "r" (&pointX), "r" (&pointY), "r" (&two)
+                  :
+                  );
+
+    
+}
+#endif
 
 rgbaPixel MandelbrotRender::colourForIteration(int iteration)
 {

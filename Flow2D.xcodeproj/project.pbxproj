@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A0B8542158F3AAF00DE05D9 /* AssemblerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B8541158F3AAF00DE05D9 /* AssemblerTests.m */; };
+		2A0B8549158F500A00DE05D9 /* MandelbrotRenderTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */; };
+		2A0B854A158F514E00DE05D9 /* MandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */; };
+		2A0B854B158F515700DE05D9 /* LinearHSVColourMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */; };
 		2A11CA24158D5D7F005DCA07 /* Profiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11CA23158D5D7F005DCA07 /* Profiler.m */; };
 		2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */; };
 		2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A508FBC158955B000ED67B7 /* PanControllerTests.mm */; };
@@ -38,6 +42,7 @@
 		2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */; };
 		2AF4D0D4158D332F00E8EC80 /* PixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0D3158D332F00E8EC80 /* PixelBufferProvider.mm */; };
 		2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0D6158D350B00E8EC80 /* SimplePixelBufferProvider.mm */; };
+		2AF675FC158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF675FB158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A0B8540158F3AAF00DE05D9 /* AssemblerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssemblerTests.h; sourceTree = "<group>"; };
+		2A0B8541158F3AAF00DE05D9 /* AssemblerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssemblerTests.m; sourceTree = "<group>"; };
+		2A0B8547158F500A00DE05D9 /* MandelbrotRenderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderTests.h; sourceTree = "<group>"; };
+		2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MandelbrotRenderTests.mm; sourceTree = "<group>"; };
 		2A11CA22158D5D7F005DCA07 /* Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = "<group>"; };
 		2A11CA23158D5D7F005DCA07 /* Profiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profiler.m; sourceTree = "<group>"; };
 		2A11CA26158D6345005DCA07 /* ProfileResults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileResults.h; sourceTree = "<group>"; };
@@ -106,6 +115,10 @@
 		2AF4D0D3158D332F00E8EC80 /* PixelBufferProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PixelBufferProvider.mm; sourceTree = "<group>"; };
 		2AF4D0D5158D350B00E8EC80 /* SimplePixelBufferProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePixelBufferProvider.h; sourceTree = "<group>"; };
 		2AF4D0D6158D350B00E8EC80 /* SimplePixelBufferProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimplePixelBufferProvider.mm; sourceTree = "<group>"; };
+		2AF675F2158FE4DB00FB1041 /* IterationsASM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IterationsASM.h; sourceTree = "<group>"; };
+		2AF675F6158FE59600FB1041 /* Assembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembly.h; sourceTree = "<group>"; };
+		2AF675FA158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotIterateValuesMatcher.h; sourceTree = "<group>"; };
+		2AF675FB158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MandelbrotIterateValuesMatcher.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +207,8 @@
 				2A11CA22158D5D7F005DCA07 /* Profiler.h */,
 				2A11CA23158D5D7F005DCA07 /* Profiler.m */,
 				2A11CA26158D6345005DCA07 /* ProfileResults.h */,
+				2AF675F2158FE4DB00FB1041 /* IterationsASM.h */,
+				2AF675F6158FE59600FB1041 /* Assembly.h */,
 			);
 			path = Flow2D;
 			sourceTree = "<group>";
@@ -219,6 +234,12 @@
 				2AA93290157ED252008768A9 /* ZoomControllerTests.mm */,
 				2A508FBB158955B000ED67B7 /* PanControllerTests.h */,
 				2A508FBC158955B000ED67B7 /* PanControllerTests.mm */,
+				2A0B8540158F3AAF00DE05D9 /* AssemblerTests.h */,
+				2A0B8541158F3AAF00DE05D9 /* AssemblerTests.m */,
+				2A0B8547158F500A00DE05D9 /* MandelbrotRenderTests.h */,
+				2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */,
+				2AF675FA158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.h */,
+				2AF675FB158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm */,
 			);
 			path = Flow2DTests;
 			sourceTree = "<group>";
@@ -400,6 +421,11 @@
 				2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */,
 				2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */,
 				2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */,
+				2A0B8542158F3AAF00DE05D9 /* AssemblerTests.m in Sources */,
+				2A0B8549158F500A00DE05D9 /* MandelbrotRenderTests.mm in Sources */,
+				2A0B854A158F514E00DE05D9 /* MandelbrotRender.cpp in Sources */,
+				2A0B854B158F515700DE05D9 /* LinearHSVColourMapper.cpp in Sources */,
+				2AF675FC158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +512,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_FAST_MATH = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -501,10 +528,13 @@
 		2AEE87B1157D45670017A603 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flow2D/Flow2D-Prefix.pch";
 				INFOPLIST_FILE = "Flow2D/Flow2D-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -512,10 +542,13 @@
 		2AEE87B2157D45670017A603 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flow2D/Flow2D-Prefix.pch";
 				INFOPLIST_FILE = "Flow2D/Flow2D-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

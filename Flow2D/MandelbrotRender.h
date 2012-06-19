@@ -13,6 +13,8 @@
 #include "RGBABuffer.h"
 #include "MandelbrotRegion.h"
 
+#include "Assembly.h"
+
 typedef double coord;
 
 class MandelbrotRender
@@ -29,13 +31,20 @@ public:
     MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper);
     
     void perform();
+
+    int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
+
+    void iterate(coord& x, coord& y, coord& xSquared, coord& ySquared, coord const& pointX, coord const& pointY) const;
+    
+#ifdef SUPPORT_ASM
+    void iterateAssembly(coord& x, coord& y, coord& xSquared, coord& ySquared, coord const& pointX, coord const& pointY) const;
+#endif
     
     static void logRegionToRender();
     
 private:    
     rgbaPixel colourOfPixel(int pixelX, int pixelY);
     rgbaPixel colourForIteration(int iteration);
-    int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
 };
 
 
