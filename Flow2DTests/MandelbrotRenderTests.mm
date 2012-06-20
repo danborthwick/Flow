@@ -32,22 +32,22 @@
     assertThatInt(actualIterations, equalToInt(MandelbrotRender::cMaxIterations));
 }
 
-// pointX, pointY, x, y, xSquared, ySquared
+// x, y, xSquared, ySquared, pointX, pointY
 const int testValueCount = 6;
 const tIterateParameters inputValues[testValueCount] = {
-    {   1.0, 1.0, 2.0, 2.0, 0.0, 0.0    },
-    {   -0.5, 1.3, -3.8, 0.7, 0.0, 0.0    },
+    {   2.0, 2.0, 0.0, 0.0, 1.0, 1.0    },
+    {   -3.8, 0.7, 0.0, 0.0, -0.5, 1.3    },
     {   0.0, 0.0, 0.0, 0.0, 0.0, 0.0    },
-    {   0.1, 0.4, -4.1, 5.9, 0.0, 0.0    },
-    {   0.123456789, -3.987654321, 2.468013579, -0.97538642, 0.0, 0.0    },
-    {   0.0000000003, -0.000000000002, -0.00000000004, 0.00000000007, 0.0,  0.0 }
+    {   -4.1, 5.9, 0.0, 0.0, 0.1, 0.4    },
+    {   2.468013579, -0.97538642, 0.0, 0.0, 0.123456789, -3.987654321    },
+    {   -0.00000000004, 0.00000000007, 0.0,  0.0, 0.0000000003, -0.000000000002 }
 };
 
 // y = 2.0*x*y + pointY;        
 // x = xSquared - ySquared + pointX;    
 const int knownResultsCount = 1;
 const tIterateParameters valuesAfterIterate[knownResultsCount] = {
-    {   1.0, 1.0, 1.0, 9.0, 4.0, 4.0 }
+    {   1.0, 9.0, 4.0, 4.0, 1.0, 1.0 }
 };
 
 void iterate(MandelbrotRender& render, tIterateParameters& values)
@@ -55,25 +55,27 @@ void iterate(MandelbrotRender& render, tIterateParameters& values)
     render.iterate(values.x, values.y, values.xSquared, values.ySquared, values.pointX, values.pointY);
 }
 
+#ifdef SUPPORT_ASM
 void iterateAssembly(MandelbrotRender& render, tIterateParameters& values)
 {
     render.iterateAssembly(values.x, values.y, values.xSquared, values.ySquared, values.pointX, values.pointY);
 }
+#endif
 
 -(void)testGivenAMatcher_whenExpectedAndActualAreTheSame_thenMatcherSucceeds
+{
+    tIterateParameters expected = inputValues[0];
+    
+    assertThatValues(inputValues[0], equalToValues(expected));
+}
+
+-(void)testGivenTestData_thenIterateUpdatesValuesCorrectly
 {
     MandelbrotRender& render = [self createRender];
     tIterateParameters copy = inputValues[0];
     iterate(render, copy);
     
     assertThatValues(copy, equalToValues(valuesAfterIterate[0]));
-}
-
--(void)testGivenTestData_thenIterateUpdatesValuesCorrectly
-{
-    tIterateParameters expected = inputValues[0];
-    
-    assertThatValues(inputValues[0], equalToValues(expected));
 }
 
 #ifdef SUPPORT_ASM
@@ -88,7 +90,7 @@ void iterateAssembly(MandelbrotRender& render, tIterateParameters& values)
         iterate(render, normalCopy);
         iterateAssembly(render, assemblyCopy);
         
-        assertThatValues(normalCopy, equalToValues(assemblyCopy));
+        assertThatValues(assemblyCopy, equalToValues(normalCopy));
     }
 }
 #endif

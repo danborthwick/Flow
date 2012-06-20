@@ -21,5 +21,6 @@
 
  MaxIterations 1024:    3995ms
  return immediately:    46ms
+ First working assembler inner loop: 428ms
 
  */

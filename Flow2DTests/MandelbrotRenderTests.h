@@ -10,12 +10,6 @@
 
 #include "MandelbrotRender.h"
 
-typedef struct {
-    coord pointX, pointY;
-    coord x, y;
-    coord xSquared, ySquared;
-} tIterateParameters;
-
 @interface MandelbrotRenderTests : SenTestCase
 
 @end

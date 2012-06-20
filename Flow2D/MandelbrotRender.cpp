@@ -9,6 +9,7 @@
 #include "MandelbrotRender.h"
 
 #define USE_ASSEMBLY_IF_AVAILABLE 1
+#define USE_ITERATE_STRUCT 1
 
 #if defined (SUPPORT_ASM) && USE_ASSEMBLY_IF_AVAILABLE
     #define USE_ASSEMBLY 1
@@ -78,7 +79,15 @@ void MandelbrotRender::iterateAssembly(coord& x, coord& y, coord& xSquared, coor
 
     static const coord two = 2.0;
     
+#if USE_ITERATE_STRUCT
+    tIterateParameters parameters = { x, y, xSquared, ySquared, pointX, pointY };
+#endif    
+
     asm volatile (
+#if USE_ITERATE_STRUCT
+                  "fldmiad %0, {d0-d5}     \n\t"
+                  "fldmiad %1, {d6}     \n\t"
+#else
                   "fldmiad %0, {d0}     \n\t"
                   "fldmiad %1, {d1}     \n\t"
                   "fldmiad %2, {d2}     \n\t"
@@ -86,7 +95,7 @@ void MandelbrotRender::iterateAssembly(coord& x, coord& y, coord& xSquared, coor
                   "fldmiad %4, {d4}     \n\t"
                   "fldmiad %5, {d5}     \n\t"
                   "fldmiad %6, {d6}     \n\t"
-                  
+#endif                  
                   "fmuld d2, d0, d0     \n\t"   // xSquared = x*x;
                   "fmuld d3, d1, d1     \n\t"   // ySquared = y*y;
 
@@ -98,17 +107,25 @@ void MandelbrotRender::iterateAssembly(coord& x, coord& y, coord& xSquared, coor
                                                 // x = xSquared - ySquared + pointX;    
                   "fsubd d0, d2, d3     \n\t"   // x = xSqaured - ySquared
                   "faddd d0, d0, d4     \n\t"   // x = xSquared - ySquared + pointX
-                  
+#if USE_ITERATE_STRUCT                  
+                  "fstmiad %0, {d0-d3}    \n\t"
+                  :
+                  : "r" (&parameters), "r" (&two)
+#else
                   "fstmiad %0, {d0}    \n\t"
                   "fstmiad %1, {d1}    \n\t"
                   "fstmiad %2, {d2}    \n\t"
                   "fstmiad %3, {d3}    \n\t"
                   : 
                   : "r" (&x), "r" (&y), "r" (&xSquared), "r" (&ySquared), "r" (&pointX), "r" (&pointY), "r" (&two)
+#endif
                   :
-                  );
-
+                  ); 
     
+    x = parameters.x;
+    y = parameters.y;
+    xSquared = parameters.xSquared;
+    ySquared = parameters.ySquared;
 }
 #endif
 

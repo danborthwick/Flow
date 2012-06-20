@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A0B8542158F3AAF00DE05D9 /* AssemblerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B8541158F3AAF00DE05D9 /* AssemblerTests.m */; };
+		2A0B8542158F3AAF00DE05D9 /* AssemblerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B8541158F3AAF00DE05D9 /* AssemblerTests.mm */; };
 		2A0B8549158F500A00DE05D9 /* MandelbrotRenderTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */; };
 		2A0B854A158F514E00DE05D9 /* MandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */; };
 		2A0B854B158F515700DE05D9 /* LinearHSVColourMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */; };
@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		2A0B8540158F3AAF00DE05D9 /* AssemblerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssemblerTests.h; sourceTree = "<group>"; };
-		2A0B8541158F3AAF00DE05D9 /* AssemblerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssemblerTests.m; sourceTree = "<group>"; };
+		2A0B8541158F3AAF00DE05D9 /* AssemblerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AssemblerTests.mm; sourceTree = "<group>"; };
 		2A0B8547158F500A00DE05D9 /* MandelbrotRenderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderTests.h; sourceTree = "<group>"; };
 		2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MandelbrotRenderTests.mm; sourceTree = "<group>"; };
 		2A11CA22158D5D7F005DCA07 /* Profiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				2A508FBB158955B000ED67B7 /* PanControllerTests.h */,
 				2A508FBC158955B000ED67B7 /* PanControllerTests.mm */,
 				2A0B8540158F3AAF00DE05D9 /* AssemblerTests.h */,
-				2A0B8541158F3AAF00DE05D9 /* AssemblerTests.m */,
+				2A0B8541158F3AAF00DE05D9 /* AssemblerTests.mm */,
 				2A0B8547158F500A00DE05D9 /* MandelbrotRenderTests.h */,
 				2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */,
 				2AF675FA158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.h */,
@@ -421,7 +421,7 @@
 				2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */,
 				2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */,
 				2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */,
-				2A0B8542158F3AAF00DE05D9 /* AssemblerTests.m in Sources */,
+				2A0B8542158F3AAF00DE05D9 /* AssemblerTests.mm in Sources */,
 				2A0B8549158F500A00DE05D9 /* MandelbrotRenderTests.mm in Sources */,
 				2A0B854A158F514E00DE05D9 /* MandelbrotRender.cpp in Sources */,
 				2A0B854B158F515700DE05D9 /* LinearHSVColourMapper.cpp in Sources */,

@@ -17,6 +17,12 @@
 
 typedef double coord;
 
+typedef struct {
+    coord x, y;
+    coord xSquared, ySquared;
+    coord pointX, pointY;
+} tIterateParameters;
+
 class MandelbrotRender
 {
 public:
