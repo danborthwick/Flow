@@ -121,8 +121,6 @@
                   "fldmiad %4, {d4}     \n\t"
                   "fldmiad %5, {d5}     \n\t"
                   
-                  "faddd d2, d3, d4     \n\t"
-                  
                   "fstmiad %6, {d0-d5}  \n\t"
                   :
                   : "r" (&x), "r" (&y), "r" (&xSquared), "r" (&ySquared), "r" (&pointX), "r" (&pointY), "r" (&params)
@@ -131,11 +129,154 @@
     
     assertThatDouble(params.x, equalToDouble(x));
     assertThatDouble(params.y, equalToDouble(y));
-//    assertThatDouble(params.xSquared, equalToDouble(xSquared));
-    assertThatDouble(params.xSquared, equalToDouble(9.0));
+    assertThatDouble(params.xSquared, equalToDouble(xSquared));
     assertThatDouble(params.ySquared, equalToDouble(ySquared));
     assertThatDouble(params.pointX, equalToDouble(pointX));
     assertThatDouble(params.pointY, equalToDouble(pointY));
+}
+
+-(void)testWhenAnIntConstantIsSetToRegister_thenSavedRegisterHasValue
+{
+    int savedInt;
+    
+    asm volatile (
+                  "mov %0, #2    \n\t"
+                  : "=r" (savedInt)
+                  :
+                  :
+                  );
+    
+    assertThatInt(savedInt, equalToInt(2));
+}
+
+/*
+-(void)testWhenAnFloatConstantIsSetToRegister_thenSavedRegisterHasValue
+{
+    int savedInt;
+    
+    asm volatile (
+                  "vldr d0, =1.23E10   \n\t"
+                  //"fldd d0, =1.23E10   \n\t"
+                  //"fstmiad %0, =1.23E10       \n\t"
+                  :
+                  : "r" (&savedInt)
+                  :
+                  );
+    
+    assertThatInt(savedInt, equalToInt(2));
+}*/
+
+-(void)testWhenALoopIsRunTenTimes_thenCounterEqualsTen
+{
+    int count = 0;
+    int loopsRemaining = 10;
+    
+    asm volatile (
+                  "LSTART:      \n\t"
+                  "add %0, %0, #1   \n\t"
+                  "subs %1, %1, #1   \n\t"
+                  "bne LSTART   \n\t"
+                  : "=r" (count), "=r" (loopsRemaining)
+                  : "0" (count), "1" (loopsRemaining)
+                  :
+                  );
+    
+    assertThatInt(loopsRemaining, equalToInt(0));
+    assertThatInt(count, equalToInt(10));
+}
+
+-(void)testWhenAFloatLoopIsRunTenTimes_thenCounterEqualsTen
+{
+    float count = 0.0;
+    float loopsRemaining = 10.0;
+    float zero = 0.0;
+    float one = 1.0;
+    
+    asm volatile (
+                  "fldmias %0, {s0}  \n\t" //count
+                  "fldmias %1, {s1}  \n\t" //loopsRemaining
+                  "fldmias %2, {s2}  \n\t" //zero
+                  "fldmias %3, {s3}  \n\t" //one
+                  
+                  "LFLOATLOOPSTART:      \n\t"
+                  "fadds s0, s0, s3  \n\t"
+                  "fsubs s1, s1, s3  \n\t"
+                  "fcmps s1, s2  \n\t"
+                  
+                  "fcmps s1, s2     \n\t"
+                  "fmstat           \n\t"
+                  "bne LFLOATLOOPSTART   \n\t"
+                  
+                  "fstmias %0, {s0}    \n\t"
+                  "fstmias %1, {s1}    \n\t"
+                  : 
+                  : "r" (&count), "r" (&loopsRemaining), "r" (&zero), "r" (&one)
+                  :
+                  );
+    
+    assertThatFloat(loopsRemaining, equalToFloat(0.0));
+    assertThatFloat(count, equalToFloat(10.0));
+}
+
+-(void)testWhenADoubleLoopIsRunTenTimes_thenCounterEqualsTen
+{
+    double count = 0.0;
+    double loopsRemaining = 10.0;
+    double zero = 0.0;
+    double one = 1.0;
+    
+    asm volatile (
+                  "fldmiad %0, {d0}  \n\t" //count
+                  "fldmiad %1, {d1}  \n\t" //loopsRemaining
+                  "fldmiad %2, {d2}  \n\t" //zero
+                  "fldmiad %3, {d3}  \n\t" //one
+                  
+                  "LDOUBLELOOPSTART:      \n\t"
+                  "faddd d0, d0, d3  \n\t"
+                  "fsubd d1, d1, d3  \n\t"
+                  "fcmpd d1, d2  \n\t"
+                  
+                  "fcmpd d1, d2     \n\t"
+                  "fmstat           \n\t"
+                  "bne LDOUBLELOOPSTART   \n\t"
+                  
+                  "fstmiad %0, {d0}    \n\t"
+                  "fstmiad %1, {d1}    \n\t"
+                  : 
+                  : "r" (&count), "r" (&loopsRemaining), "r" (&zero), "r" (&one)
+                  :
+                  );
+    
+    assertThatDouble(loopsRemaining, equalToDouble(0.0));
+    assertThatDouble(count, equalToDouble(10.0));
+}
+
+-(void)testWhenAssemblyTestingFirstDoubleWhoseSquareIsAtLeastFour_thenTwoIsReturned
+{
+    double result = 0.0;
+    const double pointOne = 0.1;
+    const double four = 4.0;
+    
+    asm volatile (
+                  "fldmiad %0, {d0}     \n\t"
+                  "fldmiad %1, {d1}     \n\t"
+                  "fldmiad %2, {d2}     \n\t"
+                
+                  "LSQUARELOOPSTART:    \n\t"
+                  "faddd d0, d0, d1     \n\t"
+                  "fmuld d3, d0, d0     \n\t"
+                  
+                  "fcmpd d3, d2         \n\t"
+                  "fmstat               \n\t"
+                  "blt LSQUARELOOPSTART \n\t"
+                  
+                  "fstmiad %0, {d0}     \n\t"
+                  :
+                  : "r" (&result), "r" (&pointOne), "r" (&four)
+                  :
+                  );
+    
+    assertThatDouble(result, closeTo(2.0, 0.0001));
 }
 
 #endif

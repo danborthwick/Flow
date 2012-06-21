@@ -10,6 +10,7 @@
 
 #import "MandelbrotRender.h"
 #import "MandelbrotIterateValuesMatcher.h"
+#import "MandelbrotRenderCAssembly.h"
 
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
@@ -24,12 +25,20 @@
     return *new MandelbrotRender(*buffer, MandelbrotRegion::unitRegion(), *mapper);
 }
 
--(void)testGivenAnEscapePoint_thenEscapeIterationsAreCorrect
+-(void)testGivenAnEscapePoint_thenIterationsAreCorrect
 {
     MandelbrotRender& render = [self createRender];
     int actualIterations = render.iterationsForEscapeTimeOfPoint(-0.2, -0.2);
     
     assertThatInt(actualIterations, equalToInt(MandelbrotRender::cMaxIterations));
+}
+
+-(void)testGivenANonEscapePoint_thenIterationsAreCorrect
+{
+    MandelbrotRender& render = [self createRender];
+    int actualIterations = render.iterationsForEscapeTimeOfPoint(-1.2, -1.14);
+    
+    assertThatInt(actualIterations, equalToInt(3));
 }
 
 // x, y, xSquared, ySquared, pointX, pointY
@@ -50,18 +59,6 @@ const tIterateParameters valuesAfterIterate[knownResultsCount] = {
     {   1.0, 9.0, 4.0, 4.0, 1.0, 1.0 }
 };
 
-void iterate(MandelbrotRender& render, tIterateParameters& values)
-{
-    render.iterate(values.x, values.y, values.xSquared, values.ySquared, values.pointX, values.pointY);
-}
-
-#ifdef SUPPORT_ASM
-void iterateAssembly(MandelbrotRender& render, tIterateParameters& values)
-{
-    render.iterateAssembly(values.x, values.y, values.xSquared, values.ySquared, values.pointX, values.pointY);
-}
-#endif
-
 -(void)testGivenAMatcher_whenExpectedAndActualAreTheSame_thenMatcherSucceeds
 {
     tIterateParameters expected = inputValues[0];
@@ -73,7 +70,7 @@ void iterateAssembly(MandelbrotRender& render, tIterateParameters& values)
 {
     MandelbrotRender& render = [self createRender];
     tIterateParameters copy = inputValues[0];
-    iterate(render, copy);
+    render.iterate(copy);
     
     assertThatValues(copy, equalToValues(valuesAfterIterate[0]));
 }
@@ -87,12 +84,28 @@ void iterateAssembly(MandelbrotRender& render, tIterateParameters& values)
         tIterateParameters normalCopy = inputValues[i];
         tIterateParameters assemblyCopy = inputValues[i];
         
-        iterate(render, normalCopy);
-        iterateAssembly(render, assemblyCopy);
+        render.iterate(normalCopy);
+        render.iterateAssembly(assemblyCopy);
         
         assertThatValues(assemblyCopy, equalToValues(normalCopy));
     }
 }
+
+-(void)testGivenANonEscapePoint_thenAssemblyIterationsAreCorrect
+{
+    int actualIterations = iterationsForEscapeTimeOfPointCAssembly(-1.2, -1.14);
+    
+    assertThatInt(actualIterations, equalToInt(3));
+}
+
+
+/*-(void)testGivenAnEscapePoint_whenEscapeIterationsCalculatedWithAssembly_thenResultIsCorrect
+{
+    int actualIterations = iterationsForEscapeTimeOfPointCAssembly(-0.2, -0.2);
+    
+    assertThatInt(actualIterations, equalToInt(MandelbrotRender::cMaxIterations));
+}*/
+
 #endif
 
 @end

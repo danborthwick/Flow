@@ -40,10 +40,11 @@ public:
 
     int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
 
-    void iterate(coord& x, coord& y, coord& xSquared, coord& ySquared, coord const& pointX, coord const& pointY) const;
+    void iterate(tIterateParameters& parameters) const;
     
 #ifdef SUPPORT_ASM
-    void iterateAssembly(coord& x, coord& y, coord& xSquared, coord& ySquared, coord const& pointX, coord const& pointY) const;
+    int iterationsForEscapeTimeOfPointAssembly(coord pointX, coord pointY);
+    void iterateAssembly(tIterateParameters& parameters) const;
 #endif
     
     static void logRegionToRender();
