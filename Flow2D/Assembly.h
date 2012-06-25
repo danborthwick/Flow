@@ -27,7 +27,7 @@
 "bx      r0             \n\t" \
 ".arm                   \n\t" 
 #else
-#define VFP_SWITCH_TO_ARM
+#define SWITCH_TO_ARM
 #endif
 
 // Switches from ARM to THUMB mode.
@@ -36,8 +36,19 @@
 "bx      r0             \n\t" \
 ".thumb                 \n\t" 
 #else
-#define VFP_SWITCH_TO_THUMB
+#define SWITCH_TO_THUMB
 #endif
+
+#define VECTOR_LENGTH_ZERO "fmrx    r0, fpscr            \n\t" \
+"bic     r0, r0, #0x00370000  \n\t" \
+"fmxr    fpscr, r0            \n\t" 
+
+// Set vector length. VEC_LENGTH has to be bitween 0 for length 1 and 3 for length 4.
+#define VECTOR_LENGTH(VEC_LENGTH) "fmrx    r0, fpscr                         \n\t" \
+"bic     r0, r0, #0x00370000               \n\t" \
+"orr     r0, r0, #0x000" #VEC_LENGTH "0000 \n\t" \
+"fmxr    fpscr, r0                         \n\t"
+
 
 
 

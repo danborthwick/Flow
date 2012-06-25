@@ -17,6 +17,7 @@
 		2A575DC5158530FD00182200 /* PanController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A575DC4158530FD00182200 /* PanController.mm */; };
 		2A58571D1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */; };
 		2A58571E1593C680007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */; };
+		2A83354D159920250077FA66 /* VectorAssemblerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A83354C159920250077FA66 /* VectorAssemblerTests.mm */; };
 		2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C5157E4488000CC666 /* TestEffect.cpp */; };
 		2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */; };
 		2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */; };
@@ -73,6 +74,8 @@
 		2A575DC4158530FD00182200 /* PanController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PanController.mm; sourceTree = "<group>"; };
 		2A58571B1593C529007C8265 /* MandelbrotRenderCAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderCAssembly.h; sourceTree = "<group>"; };
 		2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRenderCAssembly.cpp; sourceTree = "<group>"; };
+		2A83354B159920250077FA66 /* VectorAssemblerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorAssemblerTests.h; sourceTree = "<group>"; };
+		2A83354C159920250077FA66 /* VectorAssemblerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VectorAssemblerTests.mm; sourceTree = "<group>"; };
 		2A9AF4C3157E4465000CC666 /* TestEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEffect.h; sourceTree = "<group>"; };
 		2A9AF4C5157E4488000CC666 /* TestEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestEffect.cpp; sourceTree = "<group>"; };
 		2A9AF4C7157E4D20000CC666 /* RGBABuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBABuffer.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				2A0B8548158F500A00DE05D9 /* MandelbrotRenderTests.mm */,
 				2AF675FA158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.h */,
 				2AF675FB158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm */,
+				2A83354B159920250077FA66 /* VectorAssemblerTests.h */,
+				2A83354C159920250077FA66 /* VectorAssemblerTests.mm */,
 			);
 			path = Flow2DTests;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				2A0B854B158F515700DE05D9 /* LinearHSVColourMapper.cpp in Sources */,
 				2AF675FC158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm in Sources */,
 				2A58571E1593C680007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */,
+				2A83354D159920250077FA66 /* VectorAssemblerTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

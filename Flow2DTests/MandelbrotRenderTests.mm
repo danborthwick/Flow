@@ -95,7 +95,7 @@ const tIterateParameters valuesAfterIterate[knownResultsCount] = {
 {
     int actualIterations = iterationsForEscapeTimeOfPointCAssembly(-1.2, -1.14);
     
-    assertThatInt(actualIterations, equalToInt(3));
+    assertThatInt(actualIterations, equalToInt(4));
 }
 
 

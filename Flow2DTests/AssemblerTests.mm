@@ -11,7 +11,8 @@
 #include "Assembly.h"
 #include "MandelbrotRender.h"
 
-@implementation AssemblerTests
+@implementation 
+AssemblerTests
 
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
@@ -61,25 +62,6 @@
                   "fldmiad %1, {d1}    \n\t"    // f1->s1
                   "fldmiad %2, {d2}    \n\t"    // f2->s2
                   "fmuld d0, d1, d2    \n\t"    // s0 = f1*f2
-                  "fstmiad %0, {d0}    \n\t"    // s0->product
-                  : 
-                  : "r" (&product), "r" (&d1), "r" (&d2)
-                  :
-                  );
-    
-    assertThatDouble(product, equalToDouble(20.0f));
-}
-
--(void)testWhenTwoDoublesAreSquaredAsVector_thenValuesAreSquared
-{
-    double d1 = 4.0;
-    double d2 = 5.0;
-    double product = 0;
-    
-    asm volatile (
-                  "fldmiad %1, {d4}    \n\t"    // f1->s1
-                  "fldmiad %2, {d5}    \n\t"    // f2->s2
-//                  "fmuld {d4-d5}, {d4-d5}, {d4-d5}    \n\t"    // s0 = f1*f2
                   "fstmiad %0, {d0}    \n\t"    // s0->product
                   : 
                   : "r" (&product), "r" (&d1), "r" (&d2)

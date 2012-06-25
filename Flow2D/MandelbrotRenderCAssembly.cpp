@@ -16,7 +16,8 @@ int iterationsForEscapeTimeOfPointCAssembly(double pointX, double pointY)
     int iterations = MandelbrotRender::cMaxIterations;
     
     /*    do {
-     iterateAssembly(parameters);
+        y => 2xy + pointY
+        x => x^2 - y^2 + pointX
      }
      while (((parameters.xSquared + parameters.ySquared) < 4.0) && (--iterations));
      */    
