@@ -11,10 +11,10 @@
 #include "Assembly.h"
 #include "MandelbrotRender.h"
 
-@implementation VectorAssemblerTests
-
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
+
+@implementation VectorAssemblerTests
 
 #ifdef SUPPORT_ASM
 -(void)testWhenTwoDoublesAreSquaredAsVector_thenValuesAreSquared
@@ -25,10 +25,10 @@
     
     asm volatile (
                   VECTOR_LENGTH(1)
-                  "fldmiad %1, {d4}    \n\t"
-                  "fldmiad %2, {d5}    \n\t"
+                  "vldmia.f64 %1, {d4}    \n\t"
+                  "vldmia.f64 %2, {d5}    \n\t"
                   "fmuld d4, d4, d4    \n\t"
-                  "fstmiad %0, {d4-d5}    \n\t"
+                  "vstmia.f64 %0, {d4-d5}    \n\t"
                   VECTOR_LENGTH_ZERO
                   : 
                   : "r" (squares), "r" (&d1), "r" (&d2)
@@ -46,9 +46,9 @@
     
     asm volatile (
                   VECTOR_LENGTH(3)
-                  "fldmiad %1, {d4-d7}  \n\t"
+                  "vldmia.f64 %1, {d4-d7}  \n\t"
                   "fmuld d4, d4, d4     \n\t"
-                  "fstmiad %0, {d4-d7}  \n\t"
+                  "vstmia.f64 %0, {d4-d7}  \n\t"
                   VECTOR_LENGTH_ZERO
                   : 
                   : "r" (squares), "r" (&values)

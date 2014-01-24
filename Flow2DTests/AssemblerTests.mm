@@ -11,11 +11,11 @@
 #include "Assembly.h"
 #include "MandelbrotRender.h"
 
-@implementation 
-AssemblerTests
-
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
+
+@implementation AssemblerTests
+
 
 #ifdef SUPPORT_ASM
 -(void)testWhenTwoIntsAreAdded_thenResultIsTheirSum
@@ -40,11 +40,11 @@ AssemblerTests
     float product = 0;
     
     asm volatile (
-                  "fldmias %1, {s1}    \n\t"    // f1->s1
-                  "fldmias %2, {s2}    \n\t"    // f2->s2
+                  "vldmia.f32 %1, {s1}    \n\t"    // f1->s1
+                  "vldmia.f32 %2, {s2}    \n\t"    // f2->s2
                   "fmuls s0, s1, s2    \n\t"    // s0 = f1*f2
-                  "fstmias %0, {s0}    \n\t"    // s0->product
-                  : 
+                  "vstmia.f32 %0, {s0}    \n\t"    // s0->product
+                  :
                   : "r" (&product), "r" (&f1), "r" (&f2)
                   :
                   );
@@ -59,11 +59,11 @@ AssemblerTests
     double product = 0;
     
     asm volatile (
-                  "fldmiad %1, {d1}    \n\t"    // f1->s1
-                  "fldmiad %2, {d2}    \n\t"    // f2->s2
+                  "vldmia.f64 %1, {d1}    \n\t"    // f1->s1
+                  "vldmia.f64 %2, {d2}    \n\t"    // f2->s2
                   "fmuld d0, d1, d2    \n\t"    // s0 = f1*f2
-                  "fstmiad %0, {d0}    \n\t"    // s0->product
-                  : 
+                  "vstmia.f64 %0, {d0}    \n\t"    // s0->product
+                  :
                   : "r" (&product), "r" (&d1), "r" (&d2)
                   :
                   );
@@ -78,9 +78,9 @@ AssemblerTests
     tStruct s = { 3.4, 5.6 };
     
     asm volatile (
-                  "fldmiad %2, {d1-d2}  \n\t"
-                  "fstmiad %0, {d1}     \n\t"
-                  "fstmiad %1, {d2}     \n\t"
+                  "vldmia.f64 %2, {d1-d2}  \n\t"
+                  "vstmia.f64 %0, {d1}     \n\t"
+                  "vstmia.f64 %1, {d2}     \n\t"
                   :
                   : "r" (&result0), "r" (&result1), "r" (&s)
                   :
@@ -97,9 +97,9 @@ AssemblerTests
     struct { double a; double b; } s;
     
     asm volatile (
-                  "fldmiad %0, {d1}  \n\t"
-                  "fldmiad %1, {d2}     \n\t"
-                  "fstmiad %2, {d1-d2}     \n\t"
+                  "vldmia.f64 %0, {d1}  \n\t"
+                  "vldmia.f64 %1, {d2}     \n\t"
+                  "vstmia.f64 %2, {d1-d2}     \n\t"
                   :
                   : "r" (&expected0), "r" (&expected1), "r" (&s)
                   :
@@ -115,14 +115,14 @@ AssemblerTests
     double x=1.0, y=2.0, xSquared=3.0, ySquared=4.0, pointX=5.0, pointY=6.0;
     
     asm volatile (
-                  "fldmiad %0, {d0}     \n\t"
-                  "fldmiad %1, {d1}     \n\t"
-                  "fldmiad %2, {d2}     \n\t"
-                  "fldmiad %3, {d3}     \n\t"
-                  "fldmiad %4, {d4}     \n\t"
-                  "fldmiad %5, {d5}     \n\t"
+                  "vldmia.f64 %0, {d0}     \n\t"
+                  "vldmia.f64 %1, {d1}     \n\t"
+                  "vldmia.f64 %2, {d2}     \n\t"
+                  "vldmia.f64 %3, {d3}     \n\t"
+                  "vldmia.f64 %4, {d4}     \n\t"
+                  "vldmia.f64 %5, {d5}     \n\t"
                   
-                  "fstmiad %6, {d0-d5}  \n\t"
+                  "vstmia.f64 %6, {d0-d5}  \n\t"
                   :
                   : "r" (&x), "r" (&y), "r" (&xSquared), "r" (&ySquared), "r" (&pointX), "r" (&pointY), "r" (&params)
                   :
@@ -158,7 +158,7 @@ AssemblerTests
     asm volatile (
                   "vldr d0, =1.23E10   \n\t"
                   //"fldd d0, =1.23E10   \n\t"
-                  //"fstmiad %0, =1.23E10       \n\t"
+                  //"vstmia.f64 %0, =1.23E10       \n\t"
                   :
                   : "r" (&savedInt)
                   :
@@ -194,10 +194,10 @@ AssemblerTests
     float one = 1.0;
     
     asm volatile (
-                  "fldmias %0, {s0}  \n\t" //count
-                  "fldmias %1, {s1}  \n\t" //loopsRemaining
-                  "fldmias %2, {s2}  \n\t" //zero
-                  "fldmias %3, {s3}  \n\t" //one
+                  "vldmia.f32 %0, {s0}  \n\t" //count
+                  "vldmia.f32 %1, {s1}  \n\t" //loopsRemaining
+                  "vldmia.f32 %2, {s2}  \n\t" //zero
+                  "vldmia.f32 %3, {s3}  \n\t" //one
                   
                   "LFLOATLOOPSTART:      \n\t"
                   "fadds s0, s0, s3  \n\t"
@@ -208,8 +208,8 @@ AssemblerTests
                   "fmstat           \n\t"
                   "bne LFLOATLOOPSTART   \n\t"
                   
-                  "fstmias %0, {s0}    \n\t"
-                  "fstmias %1, {s1}    \n\t"
+                  "vstmia.f32 %0, {s0}    \n\t"
+                  "vstmia.f32 %1, {s1}    \n\t"
                   : 
                   : "r" (&count), "r" (&loopsRemaining), "r" (&zero), "r" (&one)
                   :
@@ -227,10 +227,10 @@ AssemblerTests
     double one = 1.0;
     
     asm volatile (
-                  "fldmiad %0, {d0}  \n\t" //count
-                  "fldmiad %1, {d1}  \n\t" //loopsRemaining
-                  "fldmiad %2, {d2}  \n\t" //zero
-                  "fldmiad %3, {d3}  \n\t" //one
+                  "vldmia.f64 %0, {d0}  \n\t" //count
+                  "vldmia.f64 %1, {d1}  \n\t" //loopsRemaining
+                  "vldmia.f64 %2, {d2}  \n\t" //zero
+                  "vldmia.f64 %3, {d3}  \n\t" //one
                   
                   "LDOUBLELOOPSTART:      \n\t"
                   "faddd d0, d0, d3  \n\t"
@@ -241,8 +241,8 @@ AssemblerTests
                   "fmstat           \n\t"
                   "bne LDOUBLELOOPSTART   \n\t"
                   
-                  "fstmiad %0, {d0}    \n\t"
-                  "fstmiad %1, {d1}    \n\t"
+                  "vstmia.f64 %0, {d0}    \n\t"
+                  "vstmia.f64 %1, {d1}    \n\t"
                   : 
                   : "r" (&count), "r" (&loopsRemaining), "r" (&zero), "r" (&one)
                   :
@@ -259,9 +259,9 @@ AssemblerTests
     const double four = 4.0;
     
     asm volatile (
-                  "fldmiad %0, {d0}     \n\t"
-                  "fldmiad %1, {d1}     \n\t"
-                  "fldmiad %2, {d2}     \n\t"
+                  "vldmia.f64 %0, {d0}     \n\t"
+                  "vldmia.f64 %1, {d1}     \n\t"
+                  "vldmia.f64 %2, {d2}     \n\t"
                 
                   "LSQUARELOOPSTART:    \n\t"
                   "faddd d0, d0, d1     \n\t"
@@ -271,7 +271,7 @@ AssemblerTests
                   "fmstat               \n\t"
                   "blt LSQUARELOOPSTART \n\t"
                   
-                  "fstmiad %0, {d0}     \n\t"
+                  "vstmia.f64 %0, {d0}     \n\t"
                   :
                   : "r" (&result), "r" (&pointOne), "r" (&four)
                   :

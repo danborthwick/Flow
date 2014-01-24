@@ -10,6 +10,8 @@
 
 #include "MandelbrotRender.h"
 
+#ifdef SUPPORT_ASM
+
 int iterationsForEscapeTimeOfPointCAssembly(double pointX, double pointY)
 {
     static const double four = 4.0;
@@ -26,9 +28,9 @@ int iterationsForEscapeTimeOfPointCAssembly(double pointX, double pointY)
                   //            d1                 y
                   //            d2                 xSquared
                   //            d3                 ySquared
-                  "fldmiad %1, {d4}     \n\t"   // pointX
-                  "fldmiad %2, {d5}     \n\t"   // pointY
-                  "fldmiad %3, {d6}     \n\t"   // four
+                  "vldmia.f64 %1, {d4}     \n\t"   // pointX
+                  "vldmia.f64 %2, {d5}     \n\t"   // pointY
+                  "vldmia.f64 %3, {d6}     \n\t"   // four
                   
                   "fsubd d0, d0, d0     \n\t"   // x=0
                   "fsubd d1, d1, d1     \n\t"   // y=0
@@ -67,4 +69,4 @@ int iterationsForEscapeTimeOfPointCAssembly(double pointX, double pointY)
     return MandelbrotRender::cMaxIterations - iterations;
 }
 
-
+#endif

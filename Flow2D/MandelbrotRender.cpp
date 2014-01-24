@@ -88,8 +88,8 @@ void MandelbrotRender::iterateAssembly(tIterateParameters& parameters) const {
     static const coord two = 2.0;
     
     asm volatile (
-                  "fldmiad %0, {d0-d5}  \n\t"
-                  "fldmiad %1, {d6}     \n\t"
+                  "vldmia.f64 %0, {d0-d5}  \n\t"
+                  "vldmia.f64 %1, {d6}     \n\t"
 
                   "fmuld d2, d0, d0     \n\t"   // xSquared = x*x;
                   "fmuld d3, d1, d1     \n\t"   // ySquared = y*y;
@@ -103,7 +103,7 @@ void MandelbrotRender::iterateAssembly(tIterateParameters& parameters) const {
                   "fsubd d0, d2, d3     \n\t"   // x = xSqaured - ySquared
                   "faddd d0, d0, d4     \n\t"   // x = xSquared - ySquared + pointX
 
-                  "fstmiad %0, {d0-d3}    \n\t"
+                  "vstmia.f64 %0, {d0-d3}    \n\t"
                   :
                   : "r" (&parameters), "r" (&two)
                   :
