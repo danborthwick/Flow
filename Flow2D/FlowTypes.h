@@ -12,8 +12,7 @@
 typedef unsigned int rgbaPixel;
 typedef unsigned char rgbaComponent;
 
-const float cGrey[4] = {0.7f, 0.7f, 0.7f, 1.0f};
-const float cGreen[4] = {0.0f, 1.0f, 0.0f, 1.0f};
-const float cBlack[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+const rgbaPixel cBlack = 0xff000000;
+const rgbaPixel cWhite = 0xffffffff;
 
 #endif

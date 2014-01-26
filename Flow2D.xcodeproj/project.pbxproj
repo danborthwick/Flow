@@ -49,6 +49,7 @@
 		937900AD189553D5000B624E /* MandelbrotRenderAssemblySingleIteration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */; };
 		937900B01895956A000B624E /* MandelbrotBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 937900AE1895956A000B624E /* MandelbrotBuilder.cpp */; };
 		937900B11895956A000B624E /* MandelbrotBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 937900AE1895956A000B624E /* MandelbrotBuilder.cpp */; };
+		937900B618959D95000B624E /* CheckerboardMandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 937900B418959D95000B624E /* CheckerboardMandelbrotRender.cpp */; };
 		93A6E6191895487C009FE39C /* SmoothMandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */; };
 		93A6E61E18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp in Resources */ = {isa = PBXBuildFile; fileRef = 93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */; };
 		93E083D4189278EC00ECDA4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E083D3189278EC00ECDA4D /* Images.xcassets */; };
@@ -134,6 +135,8 @@
 		93289D3D15C56EBC00817C15 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.2/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
 		937900AE1895956A000B624E /* MandelbrotBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotBuilder.cpp; sourceTree = "<group>"; };
 		937900AF1895956A000B624E /* MandelbrotBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotBuilder.h; sourceTree = "<group>"; };
+		937900B418959D95000B624E /* CheckerboardMandelbrotRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckerboardMandelbrotRender.cpp; sourceTree = "<group>"; };
+		937900B518959D95000B624E /* CheckerboardMandelbrotRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckerboardMandelbrotRender.h; sourceTree = "<group>"; };
 		93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothMandelbrotRender.cpp; sourceTree = "<group>"; };
 		93A6E6181895487C009FE39C /* SmoothMandelbrotRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothMandelbrotRender.h; sourceTree = "<group>"; };
 		93A6E61B18954B1E009FE39C /* MandelbrotRenderAssemblySingleIteration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderAssemblySingleIteration.h; sourceTree = "<group>"; };
@@ -289,16 +292,7 @@
 				2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */,
 				2A9AF4CB157E65B2000CC666 /* LinearHSVColourMapper.h */,
 				2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */,
-				2AF4D0CC158D1A0E00E8EC80 /* MandelbrotRegion.h */,
-				2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */,
-				2A58571B1593C529007C8265 /* MandelbrotRenderAssemblyLoop.h */,
-				2A58571C1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp */,
-				93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */,
-				93A6E6181895487C009FE39C /* SmoothMandelbrotRender.h */,
-				93A6E61B18954B1E009FE39C /* MandelbrotRenderAssemblySingleIteration.h */,
-				93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */,
-				937900AE1895956A000B624E /* MandelbrotBuilder.cpp */,
-				937900AF1895956A000B624E /* MandelbrotBuilder.h */,
+				937900B318959D6C000B624E /* Mandelbrot */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -316,6 +310,25 @@
 				2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		937900B318959D6C000B624E /* Mandelbrot */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4D0CC158D1A0E00E8EC80 /* MandelbrotRegion.h */,
+				2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */,
+				2A58571B1593C529007C8265 /* MandelbrotRenderAssemblyLoop.h */,
+				2A58571C1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp */,
+				93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */,
+				93A6E6181895487C009FE39C /* SmoothMandelbrotRender.h */,
+				93A6E61B18954B1E009FE39C /* MandelbrotRenderAssemblySingleIteration.h */,
+				93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */,
+				937900AE1895956A000B624E /* MandelbrotBuilder.cpp */,
+				937900AF1895956A000B624E /* MandelbrotBuilder.h */,
+				937900B418959D95000B624E /* CheckerboardMandelbrotRender.cpp */,
+				937900B518959D95000B624E /* CheckerboardMandelbrotRender.h */,
+			);
+			name = Mandelbrot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,6 +460,7 @@
 				2A575DC5158530FD00182200 /* PanController.mm in Sources */,
 				2AF4D0CF158D1A7100E8EC80 /* MandelbrotRegion.cpp in Sources */,
 				2AF4D0D4158D332F00E8EC80 /* PixelBufferProvider.mm in Sources */,
+				937900B618959D95000B624E /* CheckerboardMandelbrotRender.cpp in Sources */,
 				2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */,
 				2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */,
 				2A11CA24158D5D7F005DCA07 /* Profiler.m in Sources */,

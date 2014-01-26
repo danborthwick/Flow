@@ -26,7 +26,7 @@ class MandelbrotRender
 public:
     static const int cMaxIterations;
 
-private:
+protected:
     RGBABuffer const& mTarget;
     MandelbrotRegion const& mRegionToRender;
     rgbaPixel const* mIterationsToRGBAColourMap;
@@ -34,7 +34,7 @@ private:
 public:
     MandelbrotRender(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper);
     
-    void perform();
+    virtual void perform();
 
     virtual int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
 
