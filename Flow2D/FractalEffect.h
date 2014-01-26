@@ -10,6 +10,7 @@
 #define Flow2D_FractalEffect_h
 
 #include "LinearHSVColourMapper.h"
+#include "MandelbrotBuilder.h"
 #include "MandelbrotRender.h"
 #include "Renderable.h"
 
@@ -26,6 +27,7 @@ private:
     void setTestRegion();
     
 private:
+	MandelbrotBuilder mBuilder;
     MandelbrotRegion mVisibleRegion;
     LinearColourMapper* mpColourMapper;
 };

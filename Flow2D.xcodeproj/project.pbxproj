@@ -15,8 +15,8 @@
 		2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A122173158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm */; };
 		2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A508FBC158955B000ED67B7 /* PanControllerTests.mm */; };
 		2A575DC5158530FD00182200 /* PanController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A575DC4158530FD00182200 /* PanController.mm */; };
-		2A58571D1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */; };
-		2A58571E1593C680007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */; };
+		2A58571D1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A58571C1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp */; };
+		2A58571E1593C680007C8265 /* MandelbrotRenderAssemblyLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A58571C1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp */; };
 		2A83354D159920250077FA66 /* VectorAssemblerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A83354C159920250077FA66 /* VectorAssemblerTests.mm */; };
 		2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C5157E4488000CC666 /* TestEffect.cpp */; };
 		2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AF4C9157E64BF000CC666 /* MandelbrotRender.cpp */; };
@@ -46,6 +46,11 @@
 		2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D0D6158D350B00E8EC80 /* SimplePixelBufferProvider.mm */; };
 		2AF675FC158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AF675FB158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm */; };
 		93289D3E15C56EBC00817C15 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93289D3D15C56EBC00817C15 /* OCHamcrestIOS.framework */; };
+		937900AD189553D5000B624E /* MandelbrotRenderAssemblySingleIteration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */; };
+		937900B01895956A000B624E /* MandelbrotBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 937900AE1895956A000B624E /* MandelbrotBuilder.cpp */; };
+		937900B11895956A000B624E /* MandelbrotBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 937900AE1895956A000B624E /* MandelbrotBuilder.cpp */; };
+		93A6E6191895487C009FE39C /* SmoothMandelbrotRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */; };
+		93A6E61E18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp in Resources */ = {isa = PBXBuildFile; fileRef = 93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */; };
 		93E083D4189278EC00ECDA4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E083D3189278EC00ECDA4D /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +78,8 @@
 		2A508FBC158955B000ED67B7 /* PanControllerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PanControllerTests.mm; sourceTree = "<group>"; };
 		2A575DC3158530EE00182200 /* PanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanController.h; sourceTree = "<group>"; };
 		2A575DC4158530FD00182200 /* PanController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PanController.mm; sourceTree = "<group>"; };
-		2A58571B1593C529007C8265 /* MandelbrotRenderCAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderCAssembly.h; sourceTree = "<group>"; };
-		2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRenderCAssembly.cpp; sourceTree = "<group>"; };
+		2A58571B1593C529007C8265 /* MandelbrotRenderAssemblyLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderAssemblyLoop.h; sourceTree = "<group>"; };
+		2A58571C1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRenderAssemblyLoop.cpp; sourceTree = "<group>"; };
 		2A83354B159920250077FA66 /* VectorAssemblerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorAssemblerTests.h; sourceTree = "<group>"; };
 		2A83354C159920250077FA66 /* VectorAssemblerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VectorAssemblerTests.mm; sourceTree = "<group>"; };
 		2A9AF4C3157E4465000CC666 /* TestEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEffect.h; sourceTree = "<group>"; };
@@ -127,6 +132,12 @@
 		2AF675FA158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotIterateValuesMatcher.h; sourceTree = "<group>"; };
 		2AF675FB158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MandelbrotIterateValuesMatcher.mm; sourceTree = "<group>"; };
 		93289D3D15C56EBC00817C15 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = "../Frameworks/OCHamcrest-1.2/OCHamcrestIOS.framework"; sourceTree = "<group>"; };
+		937900AE1895956A000B624E /* MandelbrotBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotBuilder.cpp; sourceTree = "<group>"; };
+		937900AF1895956A000B624E /* MandelbrotBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotBuilder.h; sourceTree = "<group>"; };
+		93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothMandelbrotRender.cpp; sourceTree = "<group>"; };
+		93A6E6181895487C009FE39C /* SmoothMandelbrotRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothMandelbrotRender.h; sourceTree = "<group>"; };
+		93A6E61B18954B1E009FE39C /* MandelbrotRenderAssemblySingleIteration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandelbrotRenderAssemblySingleIteration.h; sourceTree = "<group>"; };
+		93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MandelbrotRenderAssemblySingleIteration.cpp; sourceTree = "<group>"; };
 		93E083D3189278EC00ECDA4D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,8 +291,14 @@
 				2A9AF4CC157E6755000CC666 /* LinearHSVColourMapper.cpp */,
 				2AF4D0CC158D1A0E00E8EC80 /* MandelbrotRegion.h */,
 				2AF4D0CE158D1A7100E8EC80 /* MandelbrotRegion.cpp */,
-				2A58571B1593C529007C8265 /* MandelbrotRenderCAssembly.h */,
-				2A58571C1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp */,
+				2A58571B1593C529007C8265 /* MandelbrotRenderAssemblyLoop.h */,
+				2A58571C1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp */,
+				93A6E6171895487C009FE39C /* SmoothMandelbrotRender.cpp */,
+				93A6E6181895487C009FE39C /* SmoothMandelbrotRender.h */,
+				93A6E61B18954B1E009FE39C /* MandelbrotRenderAssemblySingleIteration.h */,
+				93A6E61D18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp */,
+				937900AE1895956A000B624E /* MandelbrotBuilder.cpp */,
+				937900AF1895956A000B624E /* MandelbrotBuilder.h */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -379,6 +396,7 @@
 				2AEE8789157D45670017A603 /* InfoPlist.strings in Resources */,
 				93E083D4189278EC00ECDA4D /* Images.xcassets in Resources */,
 				2AEE8792157D45670017A603 /* MainStoryboard_iPhone.storyboard in Resources */,
+				93A6E61E18954BEA009FE39C /* MandelbrotRenderAssemblySingleIteration.cpp in Resources */,
 				2AEE8795157D45670017A603 /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +436,9 @@
 				2AEE878F157D45670017A603 /* AppDelegate.m in Sources */,
 				2AEE8798157D45670017A603 /* ViewController.mm in Sources */,
 				2AEE87C6157D4A0D0017A603 /* PixelBufferView.mm in Sources */,
+				937900B01895956A000B624E /* MandelbrotBuilder.cpp in Sources */,
 				2AEE87CC157E3BB00017A603 /* FractalEffect.cpp in Sources */,
+				93A6E6191895487C009FE39C /* SmoothMandelbrotRender.cpp in Sources */,
 				2A9AF4C6157E4488000CC666 /* TestEffect.cpp in Sources */,
 				2A9AF4CA157E64BF000CC666 /* MandelbrotRender.cpp in Sources */,
 				2A9AF4CD157E6755000CC666 /* LinearHSVColourMapper.cpp in Sources */,
@@ -430,7 +450,7 @@
 				2AF4D0D7158D350B00E8EC80 /* SimplePixelBufferProvider.mm in Sources */,
 				2A122174158D3B2C009BDEDB /* ProgressivePixelBufferProvider.mm in Sources */,
 				2A11CA24158D5D7F005DCA07 /* Profiler.m in Sources */,
-				2A58571D1593C5D6007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */,
+				2A58571D1593C5D6007C8265 /* MandelbrotRenderAssemblyLoop.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +460,7 @@
 			files = (
 				2A9AF4D0157E8609000CC666 /* HSVToRGBAConverterTests.mm in Sources */,
 				2AA93291157ED252008768A9 /* ZoomControllerTests.mm in Sources */,
+				937900B11895956A000B624E /* MandelbrotBuilder.cpp in Sources */,
 				2A508FBD158955B000ED67B7 /* PanControllerTests.mm in Sources */,
 				2AF4D0D0158D1F7700E8EC80 /* MandelbrotRegion.cpp in Sources */,
 				2A0B8542158F3AAF00DE05D9 /* AssemblerTests.mm in Sources */,
@@ -447,7 +468,8 @@
 				2A0B854A158F514E00DE05D9 /* MandelbrotRender.cpp in Sources */,
 				2A0B854B158F515700DE05D9 /* LinearHSVColourMapper.cpp in Sources */,
 				2AF675FC158FE7A500FB1041 /* MandelbrotIterateValuesMatcher.mm in Sources */,
-				2A58571E1593C680007C8265 /* MandelbrotRenderCAssembly.cpp in Sources */,
+				937900AD189553D5000B624E /* MandelbrotRenderAssemblySingleIteration.cpp in Sources */,
+				2A58571E1593C680007C8265 /* MandelbrotRenderAssemblyLoop.cpp in Sources */,
 				2A83354D159920250077FA66 /* VectorAssemblerTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

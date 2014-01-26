@@ -10,7 +10,7 @@
 
 #import "MandelbrotRender.h"
 #import "MandelbrotIterateValuesMatcher.h"
-#import "MandelbrotRenderCAssembly.h"
+#import "MandelbrotRenderAssemblySingleIteration.h"
 
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
@@ -76,16 +76,25 @@ const tIterateParameters valuesAfterIterate[knownResultsCount] = {
 }
 
 #ifdef SUPPORT_ASM
--(void)testGivenTestData_whenIterateAndIterateAssemblyAreEvaluated_thenResultsAreTheSame
+
+-(MandelbrotRender&)createAssemblyRender
+{
+    RGBABuffer* buffer = new RGBABuffer;
+    LinearColourMapper* mapper = new GreyscaleColourMapper(128, 1);
+    return *new MandelbrotRenderAssemblySingleIteration(*buffer, MandelbrotRegion::unitRegion(), *mapper);
+}
+
+-(void)testGivenNormalAndAssemblyRender_whenIterateIsEvaluated_thenResultsAreTheSame
 {
     MandelbrotRender& render = [self createRender];
+    MandelbrotRender& assemblyRender = [self createAssemblyRender];
 
     for (int i=0; i<testValueCount; i++) {
         tIterateParameters normalCopy = inputValues[i];
         tIterateParameters assemblyCopy = inputValues[i];
         
         render.iterate(normalCopy);
-        render.iterateAssembly(assemblyCopy);
+        assemblyRender.iterate(assemblyCopy);
         
         assertThatValues(assemblyCopy, equalToValues(normalCopy));
     }
@@ -93,18 +102,22 @@ const tIterateParameters valuesAfterIterate[knownResultsCount] = {
 
 -(void)testGivenANonEscapePoint_thenAssemblyIterationsAreCorrect
 {
-    int actualIterations = iterationsForEscapeTimeOfPointCAssembly(-1.2, -1.14);
+	MandelbrotRender& render = [self createAssemblyRender];
+
+    int actualIterations = render.iterationsForEscapeTimeOfPoint(-1.2, -1.14);
     
-    assertThatInt(actualIterations, equalToInt(4));
+    assertThatInt(actualIterations, equalToInt(3));
 }
 
 
-/*-(void)testGivenAnEscapePoint_whenEscapeIterationsCalculatedWithAssembly_thenResultIsCorrect
+-(void)testGivenAnEscapePoint_whenEscapeIterationsCalculatedWithAssembly_thenResultIsCorrect
 {
-    int actualIterations = iterationsForEscapeTimeOfPointCAssembly(-0.2, -0.2);
+	MandelbrotRender& render = [self createAssemblyRender];
+	
+    int actualIterations = render.iterationsForEscapeTimeOfPoint(-0.2, -0.2);
     
     assertThatInt(actualIterations, equalToInt(MandelbrotRender::cMaxIterations));
-}*/
+}
 
 #endif
 

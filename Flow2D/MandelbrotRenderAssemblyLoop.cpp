@@ -1,18 +1,24 @@
 //
-//  MandelbrotRenderCAssembly.c
+//  MandelbrotRenderAssemblyLoop.cpp
 //  Flow2D
 //
 //  Created by Dan Borthwick on 21/06/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include "MandelbrotRenderCAssembly.h"
+#include "MandelbrotRenderAssemblyLoop.h"
 
 #include "MandelbrotRender.h"
 
 #ifdef SUPPORT_ASM
 
-int iterationsForEscapeTimeOfPointCAssembly(double pointX, double pointY)
+MandelbrotRenderAssemblyLoop::MandelbrotRenderAssemblyLoop(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper)
+:	MandelbrotRender(target, regionToRender, colourMapper)
+{
+	
+}
+
+int MandelbrotRenderAssemblyLoop::iterationsForEscapeTimeOfPoint(double pointX, double pointY)
 {
     static const double four = 4.0;
     int iterations = MandelbrotRender::cMaxIterations;

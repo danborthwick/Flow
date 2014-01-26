@@ -13,8 +13,6 @@
 #include "RGBABuffer.h"
 #include "MandelbrotRegion.h"
 
-#include "Assembly.h"
-
 typedef double coord;
 
 typedef struct {
@@ -38,14 +36,9 @@ public:
     
     void perform();
 
-    int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
+    virtual int iterationsForEscapeTimeOfPoint(coord pointX, coord pointY);
 
-    void iterate(tIterateParameters& parameters) const;
-    
-#ifdef SUPPORT_ASM
-    int iterationsForEscapeTimeOfPointAssembly(coord pointX, coord pointY);
-    void iterateAssembly(tIterateParameters& parameters) const;
-#endif
+    virtual void iterate(tIterateParameters& parameters) const;
     
     static void logRegionToRender();
     

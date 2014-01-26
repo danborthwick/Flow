@@ -25,8 +25,9 @@ FractalEffect::FractalEffect()
 
 void FractalEffect::render(RGBABuffer const& rgbaBuffer, int elapsedFrames)
 {
-    MandelbrotRender render(rgbaBuffer, mVisibleRegion, *mpColourMapper);
+    MandelbrotRender& render = mBuilder.build(rgbaBuffer, mVisibleRegion, *mpColourMapper);
     render.perform();
+	delete &render;
     
 //    renderColourMapping(rgbaBuffer);
 }
