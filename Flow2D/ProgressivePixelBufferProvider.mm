@@ -48,7 +48,7 @@
 
 -(void)setupBuffer:(RGBABuffer&)buffer withMemory:(rgbaPixel*)pixelBuffer forLevel:(int)level
 {
-    int scaleFactor = 1 << level;
+    int scaleFactor = 1 << (level - 1);
     buffer.width = self.screenWidth / scaleFactor;
     buffer.height = self.screenHeight / scaleFactor;
     
