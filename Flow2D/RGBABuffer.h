@@ -9,7 +9,7 @@
 #ifndef Flow2D_RGBABuffer_h
 #define Flow2D_RGBABuffer_h
 
-#include "FlowTypes.h"
+#include "Colour.h"
 
 class RGBABuffer
 {

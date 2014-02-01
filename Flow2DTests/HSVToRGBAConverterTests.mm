@@ -13,7 +13,6 @@
 #define HC_SHORTHAND
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 
-#define assertThatRGBA(rgbaPixel, expectation) assertThat([NSNumber numberWithInt:rgbaPixel], expectation)
 #define FULL 0xff
 #define HALF 0x7f
 
@@ -107,16 +106,15 @@ HSVToRGBAConverter converter;
 
 - (BOOL) matches:(id)rgbaNSNumber
 {
-    rgbaPixel rgba = [rgbaNSNumber intValue];
-    rgbaComponent* actualComponents = (rgbaComponent*)&rgba;
+    rgbaPixel rgba = { [rgbaNSNumber intValue] };
     
-    if (actualComponents[0] != expectedRed)
+    if (rgba.components.red != expectedRed)
         return NO;
-    if (actualComponents[1] != expectedGreen)
+    if (rgba.components.green != expectedGreen)
         return NO;
-    if (actualComponents[2] != expectedBlue)
+    if (rgba.components.blue != expectedBlue)
         return NO;
-    if (actualComponents[3] != expectedAlpha)
+    if (rgba.components.alpha != expectedAlpha)
         return NO;
     
     return YES;
@@ -129,20 +127,19 @@ HSVToRGBAConverter converter;
 
 - (void)describeMismatchOf:(id)rgbaNSNumber to:(id<HCDescription>)mismatchDescription
 {
-    rgbaPixel rgba = [rgbaNSNumber intValue];
-    rgbaComponent* actualComponents = (rgbaComponent*)&rgba;
+    rgbaPixel rgba = { [rgbaNSNumber intValue] };
 
-    if (actualComponents[0] != expectedRed) {
-        [mismatchDescription appendText:[NSString stringWithFormat:@"red component  was %d, ", actualComponents[0]]];
+    if (rgba.components.red != expectedRed) {
+        [mismatchDescription appendText:[NSString stringWithFormat:@"red component  was %d, ", rgba.components.red]];
     }
-    if (actualComponents[1] != expectedGreen) {
-        [mismatchDescription appendText:[NSString stringWithFormat:@"green component  was %d, ", actualComponents[1]]];
+    if (rgba.components.green != expectedGreen) {
+        [mismatchDescription appendText:[NSString stringWithFormat:@"green component  was %d, ", rgba.components.green]];
     }
-    if (actualComponents[2] != expectedBlue) {
-        [mismatchDescription appendText:[NSString stringWithFormat:@"blue component  was %d, ", actualComponents[2]]];
+    if (rgba.components.blue != expectedBlue) {
+        [mismatchDescription appendText:[NSString stringWithFormat:@"blue component  was %d, ", rgba.components.blue]];
     }
-    if (actualComponents[3] != expectedAlpha) {
-        [mismatchDescription appendText:[NSString stringWithFormat:@"alpha component  was %d", actualComponents[3]]];
+    if (rgba.components.alpha != expectedAlpha) {
+        [mismatchDescription appendText:[NSString stringWithFormat:@"alpha component  was %d", rgba.components.alpha]];
     }
 }
 

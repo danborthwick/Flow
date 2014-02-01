@@ -34,7 +34,7 @@ GreyscaleColourMapper::GreyscaleColourMapper(int maximumValue, int cycles)
         components[3] = 0xff;
     }
     
-    mRGBATable[maximumValue] = 0xff000000;
+    mRGBATable[maximumValue] = cBlack;
 }
 
 //----------------------
@@ -48,7 +48,7 @@ HSVColourMapper::HSVColourMapper(int maximumValue, int valuesBeforeRepeat)
         mRGBATable[i] = mHSVConverter.rgbaFromHSV(normalisedHue, 1.0f, 1.0f);
     }
     
-    mRGBATable[maximumValue] = 0xff000000;
+    mRGBATable[maximumValue] = cBlack;
 }
 
 //----------------------
@@ -87,11 +87,10 @@ rgbaPixel HSVToRGBAConverter::rgbaFromHSV(float hue, float saturation, float val
     green += value - chroma;
  
     rgbaPixel rgba;
-    rgbaComponent* components = (rgbaComponent*) &rgba;
-    components[0] = (rgbaComponent) (red * 255.0f);
-    components[1] = (rgbaComponent) (green * 255.0f);
-    components[2] = (rgbaComponent) (blue * 255.0f);
-    components[3] = 0xff;
+    rgba.components.red = (red * 255.0f);
+    rgba.components.green = (rgbaComponent) (green * 255.0f);
+    rgba.components.blue = (rgbaComponent) (blue * 255.0f);
+    rgba.components.alpha = 0xff;
     
     return rgba;
 }

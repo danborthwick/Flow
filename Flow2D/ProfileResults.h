@@ -18,6 +18,7 @@
  iterations--: 581ms
  do while: 571ms
  Compiler optimisations to 'fastest smallest': 240ms
+ SmoothMandelbrotRender: 360ms
 
  MaxIterations 1024:    3995ms
  return immediately:    46ms

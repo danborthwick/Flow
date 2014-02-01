@@ -42,8 +42,10 @@ public:
     
     static void logRegionToRender();
     
-private:    
-    rgbaPixel colourOfPixel(int pixelX, int pixelY);
+	void mandelbrotCoordinateFromPixel(const int pixelX, const int pixelY, coord& mandelbrotX, coord& mandelbrotY);
+	
+protected:
+    virtual rgbaPixel colourOfPixel(int pixelX, int pixelY);
     rgbaPixel colourForIteration(int iteration);
 };
 

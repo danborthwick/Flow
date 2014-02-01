@@ -10,7 +10,7 @@
 
 #import <OCHamcrestIOS/HCBaseMatcher.h>
 #import <OCHamcrest/HCDescription.h>
-#import "FlowTypes.h"
+#import "Colour.h"
 
 @interface HSVToRGBAConverterTests : SenTestCase
 
@@ -30,3 +30,5 @@
 @end
 
 OBJC_EXPORT id<HCMatcher> hasComponents(rgbaComponent red, rgbaComponent green, rgbaComponent blue, rgbaComponent alpha);
+
+#define assertThatRGBA(rgbaPixel, expectation) assertThat([NSNumber numberWithInt:rgbaPixel.rgba], expectation)

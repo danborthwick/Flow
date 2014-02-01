@@ -26,13 +26,19 @@ void MandelbrotRender::perform()
     }    
 }
 
-rgbaPixel MandelbrotRender::colourOfPixel(int pixelX, int pixelY)
+void MandelbrotRender::mandelbrotCoordinateFromPixel(const int pixelX, const int pixelY, coord& mandelbrotX, coord& mandelbrotY)
 {
     coord mandelbrotWidth = mRegionToRender.right - mRegionToRender.left;
     coord mandelbrotHeight = mRegionToRender.top - mRegionToRender.bottom;
     
-    coord mandelbrotX = mRegionToRender.left + ((pixelX * mandelbrotWidth) / mTarget.width);
-    coord mandelbrotY = mRegionToRender.bottom + ((pixelY * mandelbrotHeight) / mTarget.height);
+    mandelbrotX = mRegionToRender.left + ((pixelX * mandelbrotWidth) / mTarget.width);
+    mandelbrotY = mRegionToRender.bottom + ((pixelY * mandelbrotHeight) / mTarget.height);
+}
+
+rgbaPixel MandelbrotRender::colourOfPixel(int pixelX, int pixelY)
+{
+    coord mandelbrotX, mandelbrotY;
+	mandelbrotCoordinateFromPixel(pixelX, pixelY, mandelbrotX, mandelbrotY);
 
     int iterations = iterationsForEscapeTimeOfPoint(mandelbrotX, mandelbrotY);
     return colourForIteration(iterations);

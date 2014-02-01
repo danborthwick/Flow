@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#include "FlowTypes.h"
 #include "Renderable.h"
 
 @interface PixelBufferView : UIView

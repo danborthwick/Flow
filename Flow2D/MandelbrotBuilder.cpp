@@ -10,9 +10,12 @@
 #include "Assembly.h"
 #include "CheckerboardMandelbrotRender.h"
 #include "MandelbrotRenderAssemblyLoop.h"
+#include "SmoothMandelbrotRender.h"
 
 MandelbrotRender& MandelbrotBuilder::build(RGBABuffer const& target, MandelbrotRegion const& regionToRender, LinearColourMapper const& colourMapper)
 {
+	return *new SmoothMandelbrotRender(target, regionToRender, colourMapper);
+
 #ifdef SUPPORT_ASM
 	return *new MandelbrotRenderAssemblyLoop(target, regionToRender, colourMapper);
 #else

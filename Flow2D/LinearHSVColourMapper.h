@@ -9,7 +9,7 @@
 #ifndef Flow2D_LinearHSVColourMapper_h
 #define Flow2D_LinearHSVColourMapper_h
 
-#include "FlowTypes.h"
+#include "Colour.h"
 
 class LinearColourMapper
 {
